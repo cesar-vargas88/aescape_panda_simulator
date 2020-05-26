@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+
+  <xacro:arg name="load_tool" default="true"/>
+  <xacro:arg name="load_gazebo" default="false"/>
+
+  <xacro:include filename="$(find aescape_panda_simulator)/urdf/panda_arm.xacro"/>
+  
+  <xacro:unless value="$(arg load_gazebo)">  
+    <xacro:panda_arm />
+  </xacro:unless>
+
+  <xacro:if value="$(arg load_gazebo)">  
+    
+    <xacro:panda_arm in_gazebo="true"/>
+
+    <xacro:include filename="$(find aescape_panda_simulator)/urdf/panda_gazebo.xacro"/>
+    <xacro:panda_gazebo/>
+
+    <xacro:include filename="$(find aescape_panda_simulator)/urdf/panda_transmission.xacro"/>
+    <xacro:panda_transmission/>
+ 
+  </xacro:if>
+
+</robot>

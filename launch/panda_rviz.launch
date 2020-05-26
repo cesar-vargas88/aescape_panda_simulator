@@ -1,0 +1,19 @@
+<launch>
+    <arg name="model" />
+
+    <!-- This argument dictates if the tool will be loaded -->
+    <arg name="load_tool" default="true"/>
+
+    <!-- Parsing xacro and loading robot_description parameter -->  
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_tool:=$(arg load_tool)"/> 
+
+    <!-- Starting Joint state publisher gui node which will publish the joint values and display the joint slider, for getting joint control -->
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+    <!-- Starting robot state publish which will publish current robot joint states using tf -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    
+    <!-- Launch visualization in rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/panda.rviz" required="true" />
+    
+</launch>
