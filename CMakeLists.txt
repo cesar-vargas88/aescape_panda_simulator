@@ -63,3 +63,8 @@ target_link_libraries(JointGroupPositionController_publisher ${catkin_LIBRARIES}
 
 add_executable(JointStateController_subscriber src/JointStateController_subscriber.cpp)
 target_link_libraries(JointStateController_subscriber ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})
+
+add_executable(CartesianMotionController_publisher src/CartesianMotionController_publisher.cpp)
+target_link_libraries(CartesianMotionController_publisher ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})
+
+

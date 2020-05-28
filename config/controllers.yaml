@@ -109,7 +109,7 @@ panda:
     type: "cartesian_controllers/MotionControlHandle"
     end_effector_link: "link8"
     robot_base_link: "link0"
-    target_frame_topic: "/my_cartesian_motion_controller/target_frame"
+    target_frame_topic: "/cartesian_motion_controller/target_frame"
     joints:
       - joint1
       - joint2
@@ -123,7 +123,7 @@ panda:
     type: "cartesian_controllers/JointControllerAdapter"
     end_effector_link: "link8"
     robot_base_link: "link0"
-    target_frame_topic: "/my_cartesian_motion_controller/target_frame"
+    target_frame_topic: "/cartesian_motion_controller/target_frame"
     joints:
       - joint1
       - joint2
@@ -186,3 +186,4 @@ panda:
       - joint5
       - joint6
       - joint7
+ 

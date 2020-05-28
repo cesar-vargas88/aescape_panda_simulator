@@ -2,6 +2,7 @@
 
     <!-- This argument defines the workspace -->
     <arg name="ns" default="panda"/>
+    <arg name="controller_args" default="cartesian_motion_controller motion_control_handle"/>
 
     <!-- This argument dictates if the tool will be loaded -->
     <arg name="load_tool" default="true"/>
@@ -14,16 +15,16 @@
     <!-- Launch ros_control -->
     <include file="$(find aescape_panda_simulator)/launch/panda_controller.launch"> 
         <arg name="ns" value="$(arg ns)" />
-        <arg name="controller_args" value="joint_group_position_controller"/>
+        <arg name="controller_args" value="$(arg controller_args)"/>
     </include>
 
     <!-- Launch visualization in rviz -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/panda.rviz" required="true" />
 
-    <!-- Starting JointGroupPositionController_publisher -->
-    <node name="JointGroupPositionController_publisher" 
+    <!-- Starting CartesianMotionController_publisher -->
+    <node name="CartesianMotionController_publisher" 
         pkg="aescape_panda_simulator" 
-        type="JointGroupPositionController_publisher"
+        type="CartesianMotionController_publisher"
         output="screen">
     </node>
 </launch>
