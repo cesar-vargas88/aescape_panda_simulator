@@ -7,6 +7,10 @@ A **Gazebo simulator** for the Franka Emika Panda robot with ROS interface.
 - ros_control *controllers* (joint position, velocity, torque) available that can be controlled through ROS topics.
 - Real-time *robot state* (joint state) available through ROS topics.
 
+### Dependencies
+
+cartesian_controllers install from source https://github.com/cesar-vargas88/cartesian_controllers.git
+
 ### Installation
 
 1.Clone the repo:
@@ -19,7 +23,7 @@ A **Gazebo simulator** for the Franka Emika Panda robot with ROS interface.
 2.Install dependency packages:
 
 ```bash
-    sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-controller-manager
+    sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-controller-manager sudo apt install ros-melodic-joint-state-publisher-gui
 ```
 
 3.Once the dependencies are met, the package can be installed using catkin_make:
