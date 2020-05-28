@@ -16,7 +16,7 @@
       <pose frame=''>0.45 0 0.1 0 0 0</pose>
       <link name='link'>
         <inertial>
-          <mass>450</mass>
+          <mass>45</mass>
           <inertia>
             <ixx>12.5</ixx>
             <ixy>0</ixy>
@@ -95,8 +95,8 @@
               <ode>
                 <soft_cfm>0</soft_cfm>
                 <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
+                <kp>20000</kp>
+                <kd>1000</kd>
                 <max_vel>0.01</max_vel>
                 <min_depth>0</min_depth>
               </ode>
@@ -115,8 +115,6 @@
 
       <plugin name="model_push" filename="libmodel_push.so"/>
     </model>
-
-    
 
     <gravity>0 0 -9.8</gravity>
 

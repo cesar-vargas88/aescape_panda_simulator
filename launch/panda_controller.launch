@@ -1,0 +1,36 @@
+<launch>
+
+    <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+    <arg name="ns" default="panda"/>
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
+   
+    <!-- Load the joint state controller -->
+    <node   name="joint_state_controller_spawner" 
+            pkg="controller_manager" 
+            type="spawner"   
+            respawn="false" 
+            ns="$(arg ns)"
+            output="screen"
+            args="joint_state_controller" />
+    
+    <!-- Load the controller -->
+    <node   name="controller_spawner" 
+            pkg="controller_manager" 
+            type="spawner" 
+            respawn="false"
+            output="screen" 
+            ns="$(arg ns)"
+            args=  "joint_group_position_controller"/>
+
+    <!-- Starting robot state publish which will publish current robot joint states using tf -->
+    <node name="robot_state_publisher" 
+        pkg="robot_state_publisher" 
+        type="robot_state_publisher"
+        respawn="false" 
+        output="screen">
+        <remap from="/joint_states" to="/panda/joint_states" />
+    </node>
+
+</launch>

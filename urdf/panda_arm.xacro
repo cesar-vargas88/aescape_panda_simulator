@@ -239,7 +239,7 @@
       <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
       <dynamics damping="1.0" friction="0.5"/>
     </joint>
-    <!-- Link8 -->clear
+    <!-- Link8 -->
     <link name="link8">
       <visual>
         <geometry>
