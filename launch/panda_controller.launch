@@ -22,7 +22,7 @@
             respawn="false"
             output="screen" 
             ns="$(arg ns)"
-            args=  "joint_group_position_controller"/>
+            args=  "joint_trajectory_controller"/>
 
     <!-- Starting robot state publish which will publish current robot joint states using tf -->
     <node name="robot_state_publisher" 
