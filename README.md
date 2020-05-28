@@ -23,7 +23,7 @@ cartesian_controllers install from source https://github.com/cesar-vargas88/cart
 2.Install dependency packages:
 
 ```bash
-    sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-controller-manager sudo apt install ros-melodic-joint-state-publisher-gui ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control
+    sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-controller-manager ros-melodic-joint-state-publisher-gui ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control
 ```
 
 3.Once the dependencies are met, the package can be installed using catkin_make:
