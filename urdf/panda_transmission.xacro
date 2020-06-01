@@ -28,6 +28,7 @@
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="joint1">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                
             </joint>
             <actuator name="motor1">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
