@@ -4,7 +4,7 @@ A **Gazebo simulator** for the Franka Emika Panda robot with ROS interface.
 
 ## Features
 
-- ros_control *controllers* (joint position, velocity, torque) available that can be controlled through ROS topics.
+- ros_control *controllers* (cartesian_motion_controller) available that can be controlled through ROS topics.
 - Real-time *robot state* (joint state) available through ROS topics.
 
 ### Dependencies
@@ -17,7 +17,8 @@ cartesian_controllers install from source https://github.com/cesar-vargas88/cart
 
 ```bash
     cd <catkin_ws>/src
-    git clone https://github.com/cesar-vargas88/aescape_panda_simulator.git
+    git clone https://github.com/cesar-vargas88/cartesian_controllers.git
+    git clone --branch cartesian_controller https://github.com/cesar-vargas88/aescape_panda_simulator.git
 ```
 
 2.Install dependency packages:
@@ -37,27 +38,17 @@ cartesian_controllers install from source https://github.com/cesar-vargas88/cart
 
 ### Usage
 
-The rviz can be started by running:
+The cartesian_publisher node can be started by running:
 
 ```bash
-    roslaunch aescape_panda_simulator panda_rviz.launch
+    roslaunch aescape_panda_simulator cartesian_publisher.launch
 ```
 
-The gazebo simulator can be started by running:
+The use InteractiveMarkers to move robot EndEffector run:
 
 ```bash
-    roslaunch aescape_panda_simulator panda_gazebo.launch
+    roslaunch aescape_panda_simulator cartesian_markers.launch
 ```
-
-The JointGroupPositionController can be started by running:
-
-```bash
-    roslaunch aescape_panda_simulator panda_JointGroupPositionController.launch
-```
-
-#### Demos
-
-- Run `roslaunch aescape_panda_simulator panda_JointGroupPositionController_example.launch` to run a demo for testing the JointGroupPositionController with the simulated robot. This script starts the simulator, rviz, the JointGroupPositionController and the JointGroupPositionController_publisher demo.
 
 #### Some useful ROS topics
 
@@ -71,4 +62,4 @@ The JointGroupPositionController can be started by running:
 
 | ROS Topic | Data |
 | ------ | ------ |
-| */panda/joint_group_position_controller/command* | command the robot using the JointGroupPositionController |
+| */panda/cartesian_motion_controller/target_frame* | command the robot PoseStamped using the cartesian_motion_controller |
