@@ -3,72 +3,63 @@
  
 int main(int argc, char **argv)
 {
-    std::vector<std::vector<double>> pose{  {0.1000, 0.000, 0.9500}, 
-                                            {0.1500, 0.000, 0.9500},
-                                            {0.2000, 0.000, 0.9500}, 
-                                            {0.2500, 0.000, 0.9500},
-                                            {0.2500, 0.000, 0.9000},  
-                                            {0.2500, 0.000, 0.8500},
-                                            {0.3000, 0.000, 0.8500}, 
-                                            {0.3500, 0.000, 0.8500}, 
-                                            {0.4000, 0.000, 0.8500},
-                                            {0.4000, 0.000, 0.8000},
-                                            {0.4000, 0.000, 0.7500},
-                                            {0.4000, 0.000, 0.7000},
-                                            {0.4000, 0.000, 0.6500},
-                                            {0.4000, 0.000, 0.6000},
-                                            {0.4000, 0.000, 0.5500},
-                                            {0.4000, 0.000, 0.5000},
-                                            {0.4000, 0.000, 0.5500},
-                                            {0.4000, 0.000, 0.6000},
-                                            {0.4000, 0.000, 0.6500},
-                                            {0.4000, 0.000, 0.7000},
-                                            {0.4000, 0.000, 0.7500},
-                                            {0.4000, 0.000, 0.8000},
-                                            {0.4000, 0.000, 0.8500},
-                                            {0.3500, 0.000, 0.8500},
-                                            {0.3000, 0.000, 0.8500},
-                                            {0.2500, 0.000, 0.8500},
-                                            {0.2500, 0.000, 0.9000},
-                                            {0.2500, 0.000, 0.9500},
-                                            {0.2000, 0.000, 0.9500}, 
-                                            {0.1500, 0.000, 0.9500}};
-
     geometry_msgs::PoseStamped msg;
 
     ros::init(argc, argv, "CartesianMotionController_publisher");
     ros::NodeHandle n;
 
     ros::Publisher cartesian_motion_controller = n.advertise<geometry_msgs::PoseStamped>("/panda/cartesian_motion_controller/target_frame", 1000);
-    ros::Rate loop_rate(3);
+    ros::Rate loop_rate(20);
   
     int index = 0;
     
-    ros::Duration(4).sleep();
+    ros::Duration(2).sleep();
+
+    // Pose
+    msg.header.frame_id = "link0";
+    msg.pose.position.x = 0.350;
+    msg.pose.position.y = 0;
+    msg.pose.position.z = 0.600;
+    msg.pose.orientation.x =-0.707; 
+    msg.pose.orientation.y = 0.000; 
+    msg.pose.orientation.z = 0.000; 
+    msg.pose.orientation.w = 0.707;
+
+    bool left = true;
 
     while (ros::ok())
     {   
-        index < pose.size()-1 ? index++ : index = 0;
-
-        // Pose
-        msg.header.frame_id = "link0";
-        msg.pose.position.x = pose[index][0];
-        msg.pose.position.y = pose[index][1];
-        msg.pose.position.z = pose[index][2];
-        msg.pose.orientation.x = 1; 
-        msg.pose.orientation.y = 0; 
-        msg.pose.orientation.z = 0; 
-        msg.pose.orientation.w = 0;
-            
+        // Move front
+        if (msg.pose.position.x <= 0.500)
+        { 
+            msg.pose.position.x += 0.004;
+            msg.pose.position.z -= 0.001;      
+        }
+        // Move down
+        else if (msg.pose.position.z >= 0.250)
+            msg.pose.position.z -= 0.010;      
+        // Move left
+        else if (left)
+            msg.pose.position.y -= 0.010;  
+        // Move right 
+        else
+            msg.pose.position.y += 0.010;  
+        
+        // Change direction
+        if (msg.pose.position.y >= 0.300)
+            left = true;
+        if (msg.pose.position.y <= -0.300)
+            left = false;
+                            
         cartesian_motion_controller.publish(msg);
                 
-        ROS_INFO("CartesianMotionController: position %f, %f, %f, orientation: %f, %f, %f, %f ",msg.pose.position.x, 
+        /*ROS_INFO("CartesianMotionController: position %f, %f, %f, orientation: %f, %f, %f, %f ",msg.pose.position.x, 
                                                                                                 msg.pose.position.y, 
                                                                                                 msg.pose.position.z, 
                                                                                                 msg.pose.orientation.x, 
                                                                                                 msg.pose.orientation.x, 
                                                                                                 msg.pose.orientation.x, 
-                                                                                                msg.pose.orientation.w);
+                                                                                                msg.pose.orientation.w);*/
          
         ros::spinOnce();
  

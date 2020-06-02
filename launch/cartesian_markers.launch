@@ -1,0 +1,75 @@
+<launch>
+
+    <!-- Load robot_description to parameter server -->
+    <param  name="/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true" />
+
+
+    <!-- Simulator -->
+
+    <!-- We resume the logic in empty_world.launch, changing the name of the world to be launched -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find aescape_panda_simulator)/worlds/panda.world"/>
+        <arg name="paused" value="true"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="recording" value="false"/>
+        <arg name="debug" value="false"/>
+        <arg name="verbose" value="false"/>
+
+    </include>
+
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <node name="urdf_spawner" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        respawn="false" 
+        output="screen"
+        args="-urdf -model panda -param robot_description 
+        -J joint1  0.000 
+        -J joint2 -0.500 
+        -J joint3  0.000
+        -J joint4 -2.000 
+        -J joint5  0.000
+        -J joint6  1.500
+        -J joint7  0.000 -unpause"/>
+
+
+
+    <!-- Controller -->
+
+    <!-- Robot state publisher, which will publish current robot joint states using tf -->
+    <node   name="robot_state_publisher"
+            pkg="robot_state_publisher" 
+            type="robot_state_publisher"
+            respawn="false"
+            output="screen">
+        <remap from="/joint_states" to="/panda/joint_states" />
+        <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node>
+
+    <!-- Load controller configuration -->
+    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
+
+    <!-- Load joint_state_controller_spawner -->
+    <node   name="joint_state_controller_spawner" 
+            pkg="controller_manager" 
+            type="spawner"         
+            respawn="false" 
+            output="screen"    
+            ns="panda"
+            args="joint_state_controller"/>
+
+    <!-- Load the controller_spawner -->
+    <node   name="controller_spawner" 
+            pkg="controller_manager" 
+            type="spawner" 
+            respawn="false"
+            output="screen" 
+            ns="panda"
+            args="cartesian_motion_controller motion_control_handle"/>
+
+    <!-- Launch visualization in rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/panda.rviz" required="true" />
+
+</launch>

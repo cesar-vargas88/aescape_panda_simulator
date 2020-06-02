@@ -16,7 +16,7 @@
       <pose frame=''>0.45 0 0.1 0 0 0</pose>
       <link name='link'>
         <inertial>
-          <mass>45</mass>
+          <mass>40.5</mass>
           <inertia>
             <ixx>12.5</ixx>
             <ixy>0</ixy>
@@ -112,8 +112,6 @@
           </surface>
         </collision>
       </link>
-
-      <plugin name="model_push" filename="libmodel_push.so"/>
     </model>
 
     <gravity>0 0 -9.8</gravity>
