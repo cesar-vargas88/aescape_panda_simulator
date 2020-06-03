@@ -55,15 +55,6 @@ include_directories(${GAZEBO_INCLUDE_DIRS})
 link_directories(${GAZEBO_LIBRARY_DIRS})
 list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 
-add_library(model_push SHARED plugins/model_push.cc)
-target_link_libraries(model_push ${GAZEBO_LIBRARIES})
-
-add_executable(JointGroupPositionController_publisher src/JointGroupPositionController_publisher.cpp)
-target_link_libraries(JointGroupPositionController_publisher ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})
-
-add_executable(JointStateController_subscriber src/JointStateController_subscriber.cpp)
-target_link_libraries(JointStateController_subscriber ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})
-
 add_executable(CartesianMotionController_publisher src/CartesianMotionController_publisher.cpp)
 target_link_libraries(CartesianMotionController_publisher ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})
 
