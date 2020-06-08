@@ -16,7 +16,7 @@ int main(int argc, char **argv)
     ros::Duration(2).sleep();
 
     // Pose
-    msg.header.frame_id = "link0";
+    msg.header.frame_id = "panda_link0";
     msg.pose.position.x = 0.350;
     msg.pose.position.y = 0;
     msg.pose.position.z = 0.600;

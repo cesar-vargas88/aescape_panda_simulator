@@ -1,11 +1,10 @@
 <?xml version='1.0'?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
   <xacro:macro name="panda_arm" params="arm_id:='panda' description_pkg:='aescape_panda_simulator' connected_to:=''  in_gazebo='false' xyz:='0 0 0' rpy:='0 0 0'">
-    
     <xacro:unless value="${not connected_to}">
-      <joint name="joint_${connected_to}" type="fixed">
+      <joint name="${arm_id}_joint_${connected_to}" type="fixed">
         <parent link="${connected_to}"/>
-        <child link="link0"/>
+        <child link="${arm_id}_link0"/>
         <origin rpy="${rpy}" xyz="${xyz}"/>
       </joint>
     </xacro:unless>
@@ -17,14 +16,13 @@
 
       <joint name="robot_to_world" type="fixed">
         <parent link="world" />
-        <child link="link0" />
+        <child link="${arm_id}_link0" />
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         <dynamics damping="${joint_damping}"/>
       </joint>
     </xacro:unless>
 
-    <!-- Link0 -->
-    <link name="link0">
+    <link name="${arm_id}_link0">
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/link0.dae"/>
@@ -43,8 +41,7 @@
         </inertial>
       </xacro:unless>
     </link>
-    <!-- Link1 -->
-    <link name="link1">
+    <link name="${arm_id}_link1">
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/link1.dae"/>
@@ -61,18 +58,16 @@
         <inertia ixx="7.0337e-01" ixy="-1.3900e-04" ixz="6.7720e-03" iyy="7.0661e-01" iyz="1.9169e-02" izz="9.1170e-03"/>
       </inertial>
     </link>
-    <!-- Joint1 -->
-    <joint name="joint1" type="revolute">
+    <joint name="${arm_id}_joint1" type="revolute">
       <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
       <origin rpy="0 0 0" xyz="0 0 0.333"/>
-      <parent link="link0"/>
-      <child link="link1"/>
+      <parent link="${arm_id}_link0"/>
+      <child link="${arm_id}_link1"/>
       <axis xyz="0 0 1"/>
       <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
       <dynamics damping="10.0" friction="5.0"/>
     </joint>
-    <!-- Link2 -->
-    <link name="link2">
+    <link name="${arm_id}_link2">
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/link2.dae"/>
@@ -89,18 +84,16 @@
         <inertia ixx="7.9620e-03" ixy="-3.9250e-03" ixz="1.0254e-02" iyy="2.8110e-02" iyz="7.0400e-04" izz="2.5995e-02"/>
       </inertial>
     </link>
-    <!-- Joint2 -->
-    <joint name="joint2" type="revolute">
+    <joint name="${arm_id}_joint2" type="revolute">
       <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.7628" soft_upper_limit="1.7628"/>
       <origin rpy="${-pi/2} 0 0" xyz="0 0 0"/>
-      <parent link="link1"/>
-      <child link="link2"/>
+      <parent link="${arm_id}_link1"/>
+      <child link="${arm_id}_link2"/>
       <axis xyz="0 0 1"/>
       <limit effort="87" lower="-1.7628" upper="1.7628" velocity="2.1750"/>
       <dynamics damping="5.0" friction="2.0"/>
     </joint>
-    <!-- Link3 -->
-    <link name="link3">
+    <link name="${arm_id}_link3">
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/link3.dae"/>
@@ -117,18 +110,16 @@
         <inertia ixx="3.7242e-02" ixy="-4.7610e-03" ixz="-1.1396e-02" iyy="3.6155e-02" iyz="-1.2805e-02" izz="1.0830e-02"/>
       </inertial>
     </link>
-    <!-- Joint3 -->
-    <joint name="joint3" type="revolute">
+    <joint name="${arm_id}_joint3" type="revolute">
       <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
       <origin rpy="${pi/2} 0 0" xyz="0 -0.316 0"/>
-      <parent link="link2"/>
-      <child link="link3"/>
+      <parent link="${arm_id}_link2"/>
+      <child link="${arm_id}_link3"/>
       <axis xyz="0 0 1"/>
       <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
       <dynamics damping="5.0" friction="2.0"/>
     </joint>
-    <!-- Link4 -->
-    <link name="link4">
+    <link name="${arm_id}_link4">
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/link4.dae"/>
@@ -145,18 +136,16 @@
         <inertia ixx="2.5853e-02" ixy="7.7960e-03" ixz="-1.3320e-03" iyy="1.9552e-02" iyz="8.6410e-03" izz="2.8323e-02"/>
       </inertial>
     </link>
-    <!-- Joint4 -->
-    <joint name="joint4" type="revolute">
+    <joint name="${arm_id}_joint4" type="revolute">
       <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="-0.0698"/>
       <origin rpy="${pi/2} 0 0" xyz="0.0825 0 0"/>
-      <parent link="link3"/>
-      <child link="link4"/>
+      <parent link="${arm_id}_link3"/>
+      <child link="${arm_id}_link4"/>
       <axis xyz="0 0 1"/>
       <limit effort="87" lower="-3.0718" upper="-0.0698" velocity="2.1750"/>
       <dynamics damping="1.0" friction="0.5"/>
     </joint>
-    <!-- Link5 -->
-    <link name="link5">
+    <link name="${arm_id}_link5">
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/link5.dae"/>
@@ -173,18 +162,16 @@
         <inertia ixx="3.5549e-02" ixy="-2.1170e-03" ixz="-4.0370e-03" iyy="2.9474e-02" iyz="2.2900e-04" izz="8.6270e-03"/>
       </inertial>
     </link>
-    <!-- Joint5 -->
-    <joint name="joint5" type="revolute">
+    <joint name="${arm_id}_joint5" type="revolute">
       <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
       <origin rpy="${-pi/2} 0 0" xyz="-0.0825 0.384 0"/>
-      <parent link="link4"/>
-      <child link="link5"/>
+      <parent link="${arm_id}_link4"/>
+      <child link="${arm_id}_link5"/>
       <axis xyz="0 0 1"/>
       <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
       <dynamics damping="2.0" friction="1.0"/>
     </joint>
-    <!-- Link6 -->
-    <link name="link6">
+    <link name="${arm_id}_link6">
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/link6.dae"/>
@@ -201,18 +188,16 @@
         <inertia ixx="1.9640e-03" ixy="1.0900e-04" ixz="-1.1580e-03" iyy="4.3540e-03" iyz="3.4100e-04" izz="5.4330e-03"/>
       </inertial>
     </link>
-    <!-- Joint6 -->
-    <joint name="joint6" type="revolute">
+    <joint name="${arm_id}_joint6" type="revolute">
       <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525"/>
       <origin rpy="${pi/2} 0 0" xyz="0 0 0"/>
-      <parent link="link5"/>
-      <child link="link6"/>
+      <parent link="${arm_id}_link5"/>
+      <child link="${arm_id}_link6"/>
       <axis xyz="0 0 1"/>
       <limit effort="12" lower="-0.0175" upper="3.7525" velocity="2.6100"/>
       <dynamics damping="1.0" friction="0.5"/>
     </joint>
-    <!-- Link7 -->
-    <link name="link7">
+    <link name="${arm_id}_link7">
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/link7.dae"/>
@@ -229,43 +214,37 @@
         <inertia ixx="1.2516e-02" ixy="-4.2800e-04" ixz="-1.1960e-03" iyy="1.0027e-02" iyz="-7.4100e-04" izz="4.8150e-03"/>
       </inertial>
     </link>
-    <!-- Joint7 -->
-    <joint name="joint7" type="revolute">
+    <joint name="${arm_id}_joint7" type="revolute">
       <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
       <origin rpy="${pi/2} 0 0" xyz="0.088 -0.106 0.0"/>
-      <parent link="link6"/>
-      <child link="link7"/>
+      <parent link="${arm_id}_link6"/>
+      <child link="${arm_id}_link7"/>
       <axis xyz="0 0 1"/>
       <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
       <dynamics damping="1.0" friction="0.5"/>
     </joint>
-    <!-- Link8 -->
-    <link name="link8">
+    <link name="${arm_id}_link8">      
       <visual>
         <geometry>
-          <mesh filename="package://${description_pkg}/meshes/visual/tool.dae" scale="0.019 0.019 0.019"/>          
+          <mesh filename="package://${description_pkg}/meshes/visual/tool.dae" scale="0.019 0.019 0.019"/>>
         </geometry>
       </visual>
       <collision>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/collision/tool.stl" scale="0.019 0.019 0.019"/>
         </geometry>
-      </collision>  
+      </collision>
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.0"/>
-        <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
       </inertial>
     </link>
-    <!-- Joint8 -->
-    <joint name="joint8" type="fixed">
-      <!--origin rpy="${pi/2} 0 0" xyz="-0.40 -0.654 -0.6195"/-->
+    <joint name="${arm_id}_joint8" type="fixed">
       <origin rpy="${pi/2} 0 0" xyz="-0.02 0.0 0.046"/>
-      <parent link="link7"/>
-      <child link="link8"/>
+      <parent link="${arm_id}_link7"/>
+      <child link="${arm_id}_link8"/>
       <axis xyz="0 0 1"/>
     </joint>
-    
   </xacro:macro>
-
 </robot>

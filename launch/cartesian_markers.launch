@@ -1,7 +1,11 @@
 <launch>
 
     <!-- Load robot_description to parameter server -->
-    <param  name="/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true" />
+    <param  name="/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=panda" />
+
+    <!-- Load controller configuration -->
+    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
+
 
 
     <!-- Simulator -->
@@ -25,13 +29,13 @@
         respawn="false" 
         output="screen"
         args="-urdf -model panda -param robot_description 
-        -J joint1  0.000 
-        -J joint2 -0.500 
-        -J joint3  0.000
-        -J joint4 -2.000 
-        -J joint5  0.000
-        -J joint6  1.500
-        -J joint7  0.000 -unpause"/>
+        -J panda_joint1  0.000 
+        -J panda_joint2 -0.500 
+        -J panda_joint3  0.000
+        -J panda_joint4 -2.000 
+        -J panda_joint5  0.000
+        -J panda_joint6  1.500
+        -J panda_joint7  0.000 -unpause"/>
 
 
 
@@ -47,9 +51,6 @@
         <param name="publish_frequency" type="double" value="50.0" />
         <param name="tf_prefix" type="string" value="" />
     </node>
-
-    <!-- Load controller configuration -->
-    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
 
     <!-- Load joint_state_controller_spawner -->
     <node   name="joint_state_controller_spawner" 
@@ -68,7 +69,7 @@
             output="screen" 
             ns="panda"
             args="cartesian_motion_controller motion_control_handle"/>
-
+  
     <!-- Launch visualization in rviz -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/panda.rviz" required="true" />
 
