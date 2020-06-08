@@ -6,6 +6,7 @@ panda:
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
+        robot_description_name: "/robot_description"
         end_effector_link: "panda_link8"
         robot_base_link: "panda_link0"
         target_frame_topic: "target_frame"
@@ -28,6 +29,7 @@ panda:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
+        robot_description_name: "/robot_description"
         end_effector_link: "panda_link8"
         robot_base_link: "panda_link0"
         target_frame_topic: "/panda/cartesian_motion_controller/target_frame"
@@ -40,6 +42,7 @@ panda:
             - panda_joint6
             - panda_joint7
 
+
 panda1:
     
     joint_state_controller:
@@ -48,17 +51,17 @@ panda1:
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
-        end_effector_link: "link8"
-        robot_base_link: "link0"
+        end_effector_link: "panda1_link8"
+        robot_base_link: "panda1_link0"
         target_frame_topic: "target_frame"
         joints:
-            - joint1
-            - joint2
-            - joint3
-            - joint4
-            - joint5
-            - joint6
-            - joint7
+            - panda1_joint1
+            - panda1_joint2
+            - panda1_joint3
+            - panda1_joint4
+            - panda1_joint5
+            - panda1_joint6
+            - panda1_joint7
 
         pd_gains:
             trans_x: {p: 10.0, i: 0.0, d: 0.0}
@@ -70,17 +73,18 @@ panda1:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
-        end_effector_link: "link8"
-        robot_base_link: "link0"
+        end_effector_link: "panda1_link8"
+        robot_base_link: "panda1_link0"
         target_frame_topic: "/panda1/cartesian_motion_controller/target_frame"
         joints:
-            - joint1
-            - joint2
-            - joint3
-            - joint4
-            - joint5
-            - joint6
-            - joint7
+            - panda1_joint1
+            - panda1_joint2
+            - panda1_joint3
+            - panda1_joint4
+            - panda1_joint5
+            - panda1_joint6
+            - panda1_joint7
+
 
 panda2:
     
@@ -90,17 +94,17 @@ panda2:
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
-        end_effector_link: "link8"
-        robot_base_link: "link0"
+        end_effector_link: "panda2_link8"
+        robot_base_link: "panda2_link0"
         target_frame_topic: "target_frame"
         joints:
-            - joint1
-            - joint2
-            - joint3
-            - joint4
-            - joint5
-            - joint6
-            - joint7
+            - panda2_joint1
+            - panda2_joint2
+            - panda2_joint3
+            - panda2_joint4
+            - panda2_joint5
+            - panda2_joint6
+            - panda2_joint7
 
         pd_gains:
             trans_x: {p: 10.0, i: 0.0, d: 0.0}
@@ -112,14 +116,14 @@ panda2:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
-        end_effector_link: "link8"
-        robot_base_link: "link0"
+        end_effector_link: "panda2_link8"
+        robot_base_link: "panda2_link0"
         target_frame_topic: "/panda2/cartesian_motion_controller/target_frame"
         joints:
-            - joint1
-            - joint2
-            - joint3
-            - joint4
-            - joint5
-            - joint6
-            - joint7
+            - panda2_joint1
+            - panda2_joint2
+            - panda2_joint3
+            - panda2_joint4
+            - panda2_joint5
+            - panda2_joint6
+            - panda2_joint7

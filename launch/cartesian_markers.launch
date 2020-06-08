@@ -1,7 +1,10 @@
 <launch>
 
+    <!-- This argument defines the workspace -->
+    <arg name="ns" default="panda"/>
+
     <!-- Load robot_description to parameter server -->
-    <param  name="/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=panda" />
+    <param  name="/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=$(arg ns)"/>
 
     <!-- Load controller configuration -->
     <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
@@ -28,14 +31,14 @@
         type="spawn_model" 
         respawn="false" 
         output="screen"
-        args="-urdf -model panda -param robot_description 
-        -J panda_joint1  0.000 
-        -J panda_joint2 -0.500 
-        -J panda_joint3  0.000
-        -J panda_joint4 -2.000 
-        -J panda_joint5  0.000
-        -J panda_joint6  1.500
-        -J panda_joint7  0.000 -unpause"/>
+        args="-urdf -model $(arg ns) -param robot_description 
+        -J $(arg ns)_joint1  0.000 
+        -J $(arg ns)_joint2 -0.500 
+        -J $(arg ns)_joint3  0.000
+        -J $(arg ns)_joint4 -2.000 
+        -J $(arg ns)_joint5  0.000
+        -J $(arg ns)_joint6  1.500
+        -J $(arg ns)_joint7  0.000 -unpause"/>
 
 
 
@@ -47,7 +50,7 @@
             type="robot_state_publisher"
             respawn="false"
             output="screen">
-        <remap from="/joint_states" to="/panda/joint_states" />
+        <remap from="/joint_states" to="/$(arg ns)/joint_states" />
         <param name="publish_frequency" type="double" value="50.0" />
         <param name="tf_prefix" type="string" value="" />
     </node>
@@ -58,7 +61,7 @@
             type="spawner"         
             respawn="false" 
             output="screen"    
-            ns="panda"
+            ns="$(arg ns)"
             args="joint_state_controller"/>
 
     <!-- Load the controller_spawner -->
@@ -67,7 +70,7 @@
             type="spawner" 
             respawn="false"
             output="screen" 
-            ns="panda"
+            ns="$(arg ns)"
             args="cartesian_motion_controller motion_control_handle"/>
   
     <!-- Launch visualization in rviz -->
