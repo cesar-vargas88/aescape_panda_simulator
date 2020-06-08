@@ -7,7 +7,7 @@
         <!-- Load ros control plugin -->
         <gazebo>
             <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-                <!--robotNamespace>/panda</robotNamespace-->
+                <robotNamespace>/panda</robotNamespace>
                 <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
                 <legacyModeNS>true</legacyModeNS>
             </plugin>
@@ -16,7 +16,7 @@
         <!-- Load ft sensor plugin - joint7-->
         <gazebo>
             <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-                <!--robotNamespace>/panda</robotNamespace-->
+                <robotNamespace>/panda</robotNamespace>
                 <updateRate>100.0</updateRate>
                 <topicName>ft_sensor_joint7</topicName>
                 <jointName>joint7</jointName>
