@@ -13,10 +13,10 @@
     
     <xacro:panda_arm in_gazebo="true"/>
 
-    <xacro:include filename="$(find aescape_panda_simulator)/urdf/panda_gazebo.xacro"/>
+    <xacro:include filename="$(find aescape_panda_simulator)/urdf/panda.gazebo.xacro"/>
     <xacro:panda_gazebo/>
 
-    <xacro:include filename="$(find aescape_panda_simulator)/urdf/panda_transmission.xacro"/>
+    <xacro:include filename="$(find aescape_panda_simulator)/urdf/panda.transmission.xacro"/>
     <xacro:panda_transmission/>
  
   </xacro:if>
