@@ -51,6 +51,7 @@ panda1:
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
+        robot_description_name: "/robot_description"
         end_effector_link: "panda1_link8"
         robot_base_link: "panda1_link0"
         target_frame_topic: "target_frame"
@@ -73,6 +74,7 @@ panda1:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
+        robot_description_name: "/robot_description"
         end_effector_link: "panda1_link8"
         robot_base_link: "panda1_link0"
         target_frame_topic: "/panda1/cartesian_motion_controller/target_frame"
@@ -94,6 +96,7 @@ panda2:
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
+        robot_description_name: "/robot_description"
         end_effector_link: "panda2_link8"
         robot_base_link: "panda2_link0"
         target_frame_topic: "target_frame"
@@ -116,6 +119,7 @@ panda2:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
+        robot_description_name: "/robot_description"
         end_effector_link: "panda2_link8"
         robot_base_link: "panda2_link0"
         target_frame_topic: "/panda2/cartesian_motion_controller/target_frame"
