@@ -1,21 +1,21 @@
 <launch>
 
     <!-- This argument defines the workspace -->
-    <arg name="ns1" default="panda1"/>
-    <arg name="ns2" default="panda2"/>
+    <arg name="ns1" default="left"/>
+    <arg name="ns2" default="right"/>
 
     <!-- Load robot_description to parameter server -->
-    <param  name="/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=$(arg ns1)"/>
+    <param  name="$(arg ns1)/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=$(arg ns1)"/>
 
-    <!-- Load controller configuration -->
-    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
-
+    <!-- Load robot_description to parameter server -->
+    <param  name="$(arg ns2)/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=$(arg ns2)"/>
 
 
     <!-- Simulator -->
 
     <!-- We resume the logic in empty_world.launch, changing the name of the world to be launched -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
+
         <arg name="world_name" value="$(find aescape_panda_simulator)/worlds/panda.world"/>
         <arg name="paused" value="true"/>
         <arg name="use_sim_time" value="true"/>
@@ -27,37 +27,68 @@
     </include>
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-    <node name="urdf_spawner" 
+    <node name="urdf_spawner_$(arg ns1)" 
         pkg="gazebo_ros" 
         type="spawn_model" 
         respawn="false" 
         output="screen"
-        args="-urdf -model $(arg ns1) -param robot_description 
+        args="-urdf -model $(arg ns1) -param $(arg ns1)/robot_description -x 0.0 -y -0.5 -z 0.0
         -J $(arg ns1)_joint1  0.000 
         -J $(arg ns1)_joint2 -0.500 
         -J $(arg ns1)_joint3  0.000
         -J $(arg ns1)_joint4 -2.000 
         -J $(arg ns1)_joint5  0.000
         -J $(arg ns1)_joint6  1.500
-        -J $(arg ns1)_joint7  0.000 -unpause"/>
+        -J $(arg ns1)_joint7  0.000 "/>
 
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <node name="urdf_spawner_$(arg ns2)" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        respawn="false" 
+        output="screen"
+        args="-urdf -model $(arg ns2) -param $(arg ns2)/robot_description -x 0.0 -y 0.5 -z 0.0
+        -J $(arg ns2)_joint1  0.000 
+        -J $(arg ns2)_joint2 -0.500 
+        -J $(arg ns2)_joint3  0.000
+        -J $(arg ns2)_joint4 -2.000 
+        -J $(arg ns2)_joint5  0.000
+        -J $(arg ns2)_joint6  1.500
+        -J $(arg ns2)_joint7  0.000 -unpause"/>
 
 
     <!-- Controller -->
 
+    <!-- Load controller configuration -->
+    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
+
+
     <!-- Robot state publisher, which will publish current robot joint states using tf -->
-    <node   name="robot_state_publisher"
+    <node   name="robot_state_publisher_$(arg ns1)"
             pkg="robot_state_publisher" 
             type="robot_state_publisher"
             respawn="false"
             output="screen">
+        <remap from="robot_description" to="$(arg ns1)/robot_description" />
         <remap from="/joint_states" to="/$(arg ns1)/joint_states" />
         <param name="publish_frequency" type="double" value="50.0" />
         <param name="tf_prefix" type="string" value="" />
     </node>
 
+    <!-- Robot state publisher, which will publish current robot joint states using tf -->
+    <node   name="robot_state_publisher_$(arg ns2)"
+            pkg="robot_state_publisher" 
+            type="robot_state_publisher"
+            respawn="false"
+            output="screen">
+        <remap from="robot_description" to="$(arg ns2)/robot_description" />       
+        <remap from="/joint_states" to="/$(arg ns2)/joint_states" />
+        <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node>
+
     <!-- Load joint_state_controller_spawner -->
-    <node   name="joint_state_controller_spawner" 
+    <node   name="joint_state_controller_spawner_$(arg ns1)" 
             pkg="controller_manager" 
             type="spawner"         
             respawn="false" 
@@ -65,16 +96,36 @@
             ns="$(arg ns1)"
             args="joint_state_controller"/>
 
+    <!-- Load joint_state_controller_spawner -->
+    <node   name="joint_state_controller_spawner_$(arg ns2)" 
+            pkg="controller_manager" 
+            type="spawner"         
+            respawn="false" 
+            output="screen"    
+            ns="$(arg ns2)"
+            args="joint_state_controller"/>
+
     <!-- Load the controller_spawner -->
-    <node   name="controller_spawner" 
+    <node   name="controller_spawner_$(arg ns1)" 
             pkg="controller_manager" 
             type="spawner" 
             respawn="false"
             output="screen" 
             ns="$(arg ns1)"
-            args="cartesian_motion_controller motion_control_handle"/>
+            args="cartesian_motion_controller"/> 
+            
+     <!-- Load the controller_spawner -->
+    <node   name="controller_spawner_$(arg ns2)" 
+            pkg="controller_manager" 
+            type="spawner" 
+            respawn="false"
+            output="screen" 
+            ns="$(arg ns2)"
+            args="cartesian_motion_controller"/> 
+            
+            <!-- motion_control_handle"/-->
   
     <!-- Launch visualization in rviz -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/panda1.rviz" required="true" />
+    <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/panda_dual.rviz" required="true" /-->
 
 </launch>

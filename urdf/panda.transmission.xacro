@@ -18,7 +18,7 @@
             <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
                 <robotNamespace>/${robot_name}</robotNamespace>
                 <updateRate>100.0</updateRate>
-                <topicName>ft_sensor_joint7</topicName>
+                <topicName>transformed_world</topicName>
                 <jointName>${robot_name}_joint7</jointName>
             </plugin>
         </gazebo>

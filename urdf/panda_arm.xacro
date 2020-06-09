@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
-  <xacro:macro name="panda_arm" params="arm_id:='panda' description_pkg:='aescape_panda_simulator' connected_to:=''  in_gazebo='false' xyz:='0 0 0' rpy:='0 0 0'">
+  <xacro:macro name="panda_arm" params="arm_id:='panda' description_pkg:='aescape_panda_simulator' connected_to:='' in_gazebo='false' xyz:='0 0 0' rpy:='0 0 0'">
     <xacro:unless value="${not connected_to}">
       <joint name="${arm_id}_joint_${connected_to}" type="fixed">
         <parent link="${connected_to}"/>
@@ -17,7 +17,7 @@
       <joint name="robot_to_world" type="fixed">
         <parent link="world" />
         <child link="${arm_id}_link0" />
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <origin rpy="${rpy}" xyz="${xyz}"/>
         <dynamics damping="${joint_damping}"/>
       </joint>
     </xacro:unless>
