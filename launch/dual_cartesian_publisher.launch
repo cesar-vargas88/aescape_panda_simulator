@@ -111,7 +111,7 @@
             respawn="false"
             output="screen" 
             ns="$(arg ns1)"
-            args="cartesian_motion_controller motion_control_handle"/> 
+            args="cartesian_motion_controller"/> 
             
     <!-- Right: Load the controller_spawner -->
     <node   name="controller_spawner" 
@@ -120,9 +120,16 @@
             respawn="false"
             output="screen" 
             ns="$(arg ns2)"
-            args="cartesian_motion_controller motion_control_handle"/>
+            args="cartesian_motion_controller"/>
   
     <!-- Launch visualization in rviz -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/dual_panda.rviz" required="true" />
+
+    <!-- Starting DualCartesianMotionController_publisher -->
+    <node   name="DualCartesianMotionController_publisher" 
+            pkg="aescape_panda_simulator" 
+            type="DualCartesianMotionController_publisher"
+            output="screen">
+    </node>
 
 </launch>

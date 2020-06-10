@@ -58,4 +58,7 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 add_executable(CartesianMotionController_publisher src/CartesianMotionController_publisher.cpp)
 target_link_libraries(CartesianMotionController_publisher ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})
 
+add_executable(DualCartesianMotionController_publisher src/DualCartesianMotionController_publisher.cpp)
+target_link_libraries(DualCartesianMotionController_publisher ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})
+
 

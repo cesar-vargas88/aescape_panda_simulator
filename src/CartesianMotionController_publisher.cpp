@@ -8,8 +8,8 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "CartesianMotionController_publisher");
     ros::NodeHandle n;
 
-    ros::Publisher cartesian_motion_controller = n.advertise<geometry_msgs::PoseStamped>("/panda/cartesian_motion_controller/target_frame", 1000);
-    ros::Rate loop_rate(20);
+    ros::Publisher cartesian_motion_controller = n.advertise<geometry_msgs::PoseStamped>("/panda/robot_goal", 1000);
+    ros::Rate loop_rate(50);
   
     int index = 0;
     

@@ -6,10 +6,9 @@ panda:
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
-        robot_description_name: "/robot_description"
         end_effector_link: "panda_link8"
         robot_base_link: "panda_link0"
-        target_frame_topic: "target_frame"
+        target_frame_topic: "robot_goal"
         joints:
             - panda_joint1
             - panda_joint2
@@ -29,10 +28,9 @@ panda:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
-        robot_description_name: "/robot_description"
         end_effector_link: "panda_link8"
         robot_base_link: "panda_link0"
-        target_frame_topic: "/panda/cartesian_motion_controller/target_frame"
+        target_frame_topic: "/panda/robot_goal"
         joints:
             - panda_joint1
             - panda_joint2
@@ -51,10 +49,9 @@ left:
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
-        robot_description_name: "/left/robot_description"
         end_effector_link: "left_link8"
         robot_base_link: "left_link0"
-        target_frame_topic: "target_frame"
+        target_frame_topic: "robot_goal"
         joints:
             - left_joint1
             - left_joint2
@@ -74,10 +71,9 @@ left:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
-        robot_description_name: "/left/robot_description"
         end_effector_link: "left_link8"
         robot_base_link: "left_link0"
-        target_frame_topic: "/left/cartesian_motion_controller/target_frame"
+        target_frame_topic: "/left/robot_goal"
         joints:
             - left_joint1
             - left_joint2
@@ -87,19 +83,17 @@ left:
             - left_joint6
             - left_joint7
 
-
 right:
-    
+
     joint_state_controller:
         type: joint_state_controller/JointStateController
         publish_rate: 50
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
-        robot_description_name: "/right/robot_description"
         end_effector_link: "right_link8"
         robot_base_link: "right_link0"
-        target_frame_topic: "target_frame"
+        target_frame_topic: "robot_goal"
         joints:
             - right_joint1
             - right_joint2
@@ -119,10 +113,9 @@ right:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
-        robot_description_name: "/right/robot_description"
         end_effector_link: "right_link8"
         robot_base_link: "right_link0"
-        target_frame_topic: "/right/cartesian_motion_controller/target_frame"
+        target_frame_topic: "/right/robot_goal"
         joints:
             - right_joint1
             - right_joint2

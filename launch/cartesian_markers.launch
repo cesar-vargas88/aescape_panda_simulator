@@ -4,17 +4,14 @@
     <arg name="ns" default="panda"/>
 
     <!-- Load robot_description to parameter server -->
-    <param  name="/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=$(arg ns)"/>
-
-    <!-- Load controller configuration -->
-    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
-
+    <param  name="$(arg ns)/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=$(arg ns) origin_y:=0.0"/>
 
 
     <!-- Simulator -->
 
     <!-- We resume the logic in empty_world.launch, changing the name of the world to be launched -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        
         <arg name="world_name" value="$(find aescape_panda_simulator)/worlds/panda.world"/>
         <arg name="paused" value="true"/>
         <arg name="use_sim_time" value="true"/>
@@ -31,7 +28,7 @@
         type="spawn_model" 
         respawn="false" 
         output="screen"
-        args="-urdf -model $(arg ns) -param robot_description 
+        args="-urdf -model $(arg ns) -param $(arg ns)/robot_description 
         -J $(arg ns)_joint1  0.000 
         -J $(arg ns)_joint2 -0.500 
         -J $(arg ns)_joint3  0.000
@@ -41,8 +38,10 @@
         -J $(arg ns)_joint7  0.000 -unpause"/>
 
 
-
     <!-- Controller -->
+
+    <!-- Load controller configuration -->
+    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
 
     <!-- Robot state publisher, which will publish current robot joint states using tf -->
     <node   name="robot_state_publisher"
@@ -50,6 +49,7 @@
             type="robot_state_publisher"
             respawn="false"
             output="screen">
+        <remap from="robot_description" to="$(arg ns)/robot_description" />
         <remap from="/joint_states" to="/$(arg ns)/joint_states" />
         <param name="publish_frequency" type="double" value="50.0" />
         <param name="tf_prefix" type="string" value="" />
