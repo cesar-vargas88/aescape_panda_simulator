@@ -5,7 +5,7 @@ A **Gazebo simulator** for the Franka Emika Panda robot with ROS interface.
 ## Features
 
 - ros_control *controllers* (cartesian_motion_controller) available that can be controlled through ROS topics.
-- Real-time *robot state* (joint state) available through ROS topics.
+- Real-time *robot states* (joint_states franka_states transformed_world) available through ROS topics.
 
 ### Dependencies
 
