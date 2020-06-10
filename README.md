@@ -50,6 +50,18 @@ The use InteractiveMarkers to move robot EndEffector run:
     roslaunch aescape_panda_simulator cartesian_markers.launch
 ```
 
+The dual_cartesian_publisher node can be started by running:
+
+```bash
+    roslaunch aescape_panda_simulator dual_cartesian_publisher.launch
+```
+
+The use InteractiveMarkers to move the robots EndEffector run:
+
+```bash
+    roslaunch aescape_panda_simulator dual_cartesian_markers.launch
+```
+
 #### Some useful ROS topics
 
 ##### Published Topics
@@ -57,9 +69,17 @@ The use InteractiveMarkers to move robot EndEffector run:
 | ROS Topic | Data |
 | ------ | ------ |
 | */panda/joint_states* | joint positions, velocities, efforts |
+| */left/joint_states*  | joint positions, velocities, efforts |
+| */right/joint_states* | joint positions, velocities, efforts |
+| */left/franka_state_controller/franka_states*   | franka_msgs::FrankaState |
+| */right/franka_state_controller/franka_states*  | franka_msgs::FrankaState |
+| */left/transformed_world*  | geometry_msgs/WrenchStamped send it by the force sensor |
+| */right/transformed_world* | geometry_msgs/WrenchStamped send it by the force sensor |
+
 
 ##### Subscribed Topics
 
 | ROS Topic | Data |
 | ------ | ------ |
-| */panda/cartesian_motion_controller/target_frame* | command the robot PoseStamped using the cartesian_motion_controller |
+| */left/robot_goal*  | geometry_msgs/PoseStamped command use by the cartesian_motion_controller |
+| */right/robot_goal* | geometry_msgs/PoseStamped command use by the cartesian_motion_controller |
