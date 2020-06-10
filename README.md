@@ -18,7 +18,7 @@ cartesian_controllers install from source https://github.com/cesar-vargas88/cart
 ```bash
     cd <catkin_ws>/src
     git clone --branch franka_panda https://github.com/cesar-vargas88/cartesian_controllers.git
-    git clone --branch cartesian_controller https://github.com/cesar-vargas88/aescape_panda_simulator.git
+    git clone --branch cartesian_controller https://gitlab.com/aescape/aescape_gazebo.git
 ```
 
 2.Install dependency packages:
