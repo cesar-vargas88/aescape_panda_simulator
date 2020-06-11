@@ -71,15 +71,18 @@ The use InteractiveMarkers to move the robots EndEffector run:
 | */panda/joint_states* | joint positions, velocities, efforts |
 | */left/joint_states*  | joint positions, velocities, efforts |
 | */right/joint_states* | joint positions, velocities, efforts |
+| */panda/franka_state_controller/franka_states*  | franka_msgs::FrankaState |
 | */left/franka_state_controller/franka_states*   | franka_msgs::FrankaState |
 | */right/franka_state_controller/franka_states*  | franka_msgs::FrankaState |
+| */panda/transformed_world* | geometry_msgs/WrenchStamped send it by the force sensor |
 | */left/transformed_world*  | geometry_msgs/WrenchStamped send it by the force sensor |
 | */right/transformed_world* | geometry_msgs/WrenchStamped send it by the force sensor |
 
 
 ##### Subscribed Topics
 
-| ROS Topic | Data |
-| ------ | ------ |
+| ROS Topic |   Data  |
+| --------- | --------|
+| */panda/robot_goal* | geometry_msgs/PoseStamped command use by the cartesian_motion_controller |
 | */left/robot_goal*  | geometry_msgs/PoseStamped command use by the cartesian_motion_controller |
 | */right/robot_goal* | geometry_msgs/PoseStamped command use by the cartesian_motion_controller |
