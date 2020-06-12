@@ -17,7 +17,7 @@ cartesian_controllers install from source https://github.com/cesar-vargas88/cart
 
 ```bash
     cd <catkin_ws>/src
-    git clone --branch franka_panda https://github.com/cesar-vargas88/cartesian_controllers.git
+    git clone --branch franka_state_controller https://gitlab.com/aescape/cartesian_controllers.git
     git clone --branch cartesian_controller https://gitlab.com/aescape/aescape_gazebo.git
 ```
 
@@ -68,9 +68,9 @@ The use InteractiveMarkers to move the robots EndEffector run:
 
 | ROS Topic | Data |
 | ------ | ------ |
-| */panda/joint_states* | joint positions, velocities, efforts |
-| */left/joint_states*  | joint positions, velocities, efforts |
-| */right/joint_states* | joint positions, velocities, efforts |
+| */panda/franka_state_controller/joint_states* | joint positions, velocities, efforts |
+| */left/franka_state_controller/joint_states*  | joint positions, velocities, efforts |
+| */right/franka_state_controller/joint_states* | joint positions, velocities, efforts |
 | */panda/franka_state_controller/franka_states*  | franka_msgs::FrankaState |
 | */left/franka_state_controller/franka_states*   | franka_msgs::FrankaState |
 | */right/franka_state_controller/franka_states*  | franka_msgs::FrankaState |
