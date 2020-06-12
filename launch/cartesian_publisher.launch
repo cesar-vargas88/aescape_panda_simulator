@@ -43,27 +43,6 @@
     <!-- Load controller configuration -->
     <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
 
-    <!-- Robot state publisher, which will publish current robot joint states using tf -->
-    <node   name="robot_state_publisher"
-            pkg="robot_state_publisher" 
-            type="robot_state_publisher"
-            respawn="false"
-            output="screen">
-        <remap from="robot_description" to="$(arg ns)/robot_description" />
-        <remap from="/joint_states" to="/$(arg ns)/joint_states" />
-        <param name="publish_frequency" type="double" value="50.0" />
-        <param name="tf_prefix" type="string" value="" />
-    </node>
-
-    <!-- Load joint_state_controller_spawner -->
-    <node   name="joint_state_controller_spawner" 
-            pkg="controller_manager" 
-            type="spawner"         
-            respawn="false" 
-            output="screen"    
-            ns="$(arg ns)"
-            args="joint_state_controller"/>
-
     <!-- Load the controller_spawner -->
     <node   name="controller_spawner" 
             pkg="controller_manager" 
@@ -71,8 +50,23 @@
             respawn="false"
             output="screen" 
             ns="$(arg ns)"
-            args="cartesian_motion_controller"/>
-  
+            args="joint_state_controller cartesian_motion_controller"/>
+    
+
+    <!-- rviz -->
+
+    <!-- Robot state publisher, which will publish current robot joint states using tf -->
+    <node   name="robot_state_publisher"
+            pkg="robot_state_publisher" 
+            type="robot_state_publisher"
+            respawn="false"
+            output="screen">
+        <remap from="robot_description" to="$(arg ns)/robot_description" />
+        <remap from="/joint_states" to="/$(arg ns)/franka_state_controller/joint_states" />
+        <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node>
+
     <!-- Launch visualization in rviz -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/panda.rviz" required="true" />
 

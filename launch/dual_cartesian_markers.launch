@@ -62,6 +62,27 @@
     <!-- Load controller configuration -->
     <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
 
+    <!-- Left: Load the controller_spawner -->
+    <node   name="controller_spawner" 
+            pkg="controller_manager" 
+            type="spawner" 
+            respawn="false"
+            output="screen" 
+            ns="$(arg ns1)"
+            args="cartesian_motion_controller joint_state_controller motion_control_handle"/> 
+            
+    <!-- Right: Load the controller_spawner -->
+    <node   name="controller_spawner" 
+            pkg="controller_manager" 
+            type="spawner" 
+            respawn="false"
+            output="screen" 
+            ns="$(arg ns2)"
+            args="cartesian_motion_controller joint_state_controller motion_control_handle"/>
+    
+
+    <!-- rviz -->
+
     <!-- Left: Robot state publisher, which will publish current robot joint states using tf -->
     <node   name="robot_state_publisher_$(arg ns1)"
             pkg="robot_state_publisher" 
@@ -69,7 +90,7 @@
             respawn="false"
             output="screen">
         <remap from="robot_description" to="$(arg ns1)/robot_description" />
-        <remap from="/joint_states" to="/$(arg ns1)/joint_states" />
+        <remap from="/joint_states" to="/$(arg ns1)/franka_state_controller/joint_states" />
         <param name="publish_frequency" type="double" value="50.0" />
         <param name="tf_prefix" type="string" value="" />
     </node>
@@ -81,48 +102,13 @@
             respawn="false"
             output="screen">
         <remap from="robot_description" to="$(arg ns2)/robot_description" />       
-        <remap from="/joint_states" to="/$(arg ns2)/joint_states"/>
+        <remap from="/joint_states" to="/$(arg ns2)/franka_state_controller/joint_states"/>
         <param name="publish_frequency" type="double" value="50.0" />
         <param name="tf_prefix" type="string" value="" />
     </node>
 
-    <!-- Left: Load joint_state_controller_spawner -->
-    <node   name="joint_state_controller_spawner" 
-            pkg="controller_manager" 
-            type="spawner"         
-            respawn="false" 
-            output="screen"    
-            ns="$(arg ns1)"
-            args="joint_state_controller"/>
-
-    <!-- Right: Load joint_state_controller_spawner -->
-    <node   name="joint_state_controller_spawner" 
-            pkg="controller_manager" 
-            type="spawner"         
-            respawn="false" 
-            output="screen"   
-            ns="$(arg ns2)" 
-            args="joint_state_controller"/>
-
-    <!-- Left: Load the controller_spawner -->
-    <node   name="controller_spawner" 
-            pkg="controller_manager" 
-            type="spawner" 
-            respawn="false"
-            output="screen" 
-            ns="$(arg ns1)"
-            args="cartesian_motion_controller motion_control_handle"/> 
-            
-    <!-- Right: Load the controller_spawner -->
-    <node   name="controller_spawner" 
-            pkg="controller_manager" 
-            type="spawner" 
-            respawn="false"
-            output="screen" 
-            ns="$(arg ns2)"
-            args="cartesian_motion_controller motion_control_handle"/>
-  
     <!-- Launch visualization in rviz -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/dual_panda.rviz" required="true" />
 
 </launch>
+
