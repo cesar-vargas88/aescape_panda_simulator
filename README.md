@@ -9,9 +9,10 @@ A **Gazebo simulator** for the Franka Emika Panda robot with ROS interface.
 
 ### Dependencies
 
-cartesian_controllers install from source https://github.com/cesar-vargas88/cartesian_controllers.git
-libfranka (sudo apt install ros-${ROS_DISTRO}-libfranka or install from source)
-franka-ros (sudo apt install ros-${ROS_DISTRO}-franka-ros or install from source)
+- cartesian_controllers install from source https://github.com/cesar-vargas88/cartesian_controllers.git
+- libfranka (sudo apt install ros-${ROS_DISTRO}-libfranka or install from source)
+- franka-ros (sudo apt install ros-${ROS_DISTRO}-franka-ros or install from source)
+
 
 ### Installation
 
