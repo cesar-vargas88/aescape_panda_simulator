@@ -67,6 +67,13 @@
   <exec_depend>tf</exec_depend>
   <exec_depend>urdf</exec_depend>
   <exec_depend>xacro</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_ros_pkgs</exec_depend>
+  <exec_depend>gazebo_ros_control</exec_depend>
+  <exec_depend>ros_control</exec_depend>
+  <exec_depend>ros_controllers</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
