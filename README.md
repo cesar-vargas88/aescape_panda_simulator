@@ -27,7 +27,7 @@ A **Gazebo simulator** for the Franka Emika Panda robot with ROS interface.
 2.Install dependency packages:
 
 ```bash
-    sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-controller-manager ros-melodic-joint-state-publisher-gui ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control
+    sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-controller-manager ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control
 ```
 
 3.Once the dependencies are met, the package can be installed using catkin_make:
