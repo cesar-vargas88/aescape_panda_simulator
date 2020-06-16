@@ -84,8 +84,20 @@ The use InteractiveMarkers to move the robots EndEffector run:
 
 ##### Subscribed Topics
 
-| ROS Topic |   Data  |
-| --------- | --------|
+|      ROS Topic      |                                  Data                                    |
+| ------------------- | -------------------------------------------------------------------------|
 | */panda/robot_goal* | geometry_msgs/PoseStamped command use by the cartesian_motion_controller |
 | */left/robot_goal*  | geometry_msgs/PoseStamped command use by the cartesian_motion_controller |
 | */right/robot_goal* | geometry_msgs/PoseStamped command use by the cartesian_motion_controller |
+
+
+#### Some useful ROS services
+
+|           ROS service             | 
+| --------------------------------- | 
+| */panda/franka_hw/set_K_frame*    | 
+| */left/franka_hw/set_K_frame*     | 
+| */right/franka_hw/set_K_frame*    | 
+| */panda/franka_hw/set_EE_frame*   |
+| */left/franka_hw/set_EE_frame*    |
+| */right/franka_hw/set_EE_frame*   |
