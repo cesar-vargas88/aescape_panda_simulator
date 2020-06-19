@@ -69,17 +69,17 @@ The use InteractiveMarkers to move the robots EndEffector run:
 
 ##### Published Topics
 
-| ROS Topic | Data |
-| ------ | ------ |
-| */panda/franka_state_controller/joint_states* | joint positions, velocities, efforts |
-| */left/franka_state_controller/joint_states*  | joint positions, velocities, efforts |
-| */right/franka_state_controller/joint_states* | joint positions, velocities, efforts |
-| */panda/franka_state_controller/franka_states*  | franka_msgs::FrankaState |
-| */left/franka_state_controller/franka_states*   | franka_msgs::FrankaState |
-| */right/franka_state_controller/franka_states*  | franka_msgs::FrankaState |
-| */panda/transformed_world* | geometry_msgs/WrenchStamped send it by the force sensor |
-| */left/transformed_world*  | geometry_msgs/WrenchStamped send it by the force sensor |
-| */right/transformed_world* | geometry_msgs/WrenchStamped send it by the force sensor |
+|                      ROS Topic                    |                           Data                            |
+| ------------------------------------------------- | --------------------------------------------------------- |
+| */panda/franka_state_controller/joint_states*     | joint positions, velocities, efforts                      |
+| */left/franka_state_controller/joint_states*      | joint positions, velocities, efforts                      |
+| */right/franka_state_controller/joint_states*     | joint positions, velocities, efforts                      |
+| */panda/franka_state_controller/franka_states*    | franka_msgs::FrankaState                                  |
+| */left/franka_state_controller/franka_states*     | franka_msgs::FrankaState                                  |
+| */right/franka_state_controller/franka_states*    | franka_msgs::FrankaState                                  |
+| */panda/transformed_world*                        | geometry_msgs/WrenchStamped send it by the force sensor   |
+| */left/transformed_world*                         | geometry_msgs/WrenchStamped send it by the force sensor   |
+| */right/transformed_world*                        | geometry_msgs/WrenchStamped send it by the force sensor   |
 
 
 ##### Subscribed Topics
