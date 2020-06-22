@@ -39,7 +39,7 @@
         -J $(arg ns1)_joint4 -2.000 
         -J $(arg ns1)_joint5  0.000
         -J $(arg ns1)_joint6  1.500
-        -J $(arg ns1)_joint7  0.000 "/>
+        -J $(arg ns1)_joint7  0.000 -unpause"/>
 
     <!-- Right: Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <node name="urdf_spawner_$(arg ns2)" 
@@ -54,7 +54,7 @@
         -J $(arg ns2)_joint4 -2.000 
         -J $(arg ns2)_joint5  0.000
         -J $(arg ns2)_joint6  1.500
-        -J $(arg ns2)_joint7  0.000 -unpause"/>
+        -J $(arg ns2)_joint7  0.000 "/>
 
 
     <!-- Controller -->
