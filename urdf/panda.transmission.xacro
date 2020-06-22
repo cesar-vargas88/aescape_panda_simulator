@@ -23,7 +23,7 @@
             </plugin>
         </gazebo>
 
-                <transmission name="${robot_name}_tran_1">
+        <transmission name="${robot_name}_tran_1">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${robot_name}_joint1">
                 <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
