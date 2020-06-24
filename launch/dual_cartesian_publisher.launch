@@ -10,9 +10,6 @@
     <!-- Right: Load robot_description to parameter server -->
     <param  name="$(arg ns2)/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=$(arg ns2) origin_y:=0.5"/>
 
-    <!-- Load robot_description to parameter server -->
-    <param  name="camera_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/camera.xacro'"/>
-
 
     <!-- Simulator -->
 
@@ -57,15 +54,8 @@
         -J $(arg ns2)_joint4 -2.000 
         -J $(arg ns2)_joint5  0.000
         -J $(arg ns2)_joint6  1.500
-        -J $(arg ns2)_joint7  0.000 "/>
+        -J $(arg ns2)_joint7  0.000"/>
 
-    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-    <node name="urdf_spawner" 
-        pkg="gazebo_ros" 
-        type="spawn_model" 
-        respawn="false" 
-        output="screen"
-        args="-urdf -model camera -param camera_description"/>
 
     <!-- Controller -->
 
@@ -89,7 +79,7 @@
             output="screen" 
             ns="$(arg ns2)"
             args="cartesian_motion_controller joint_state_controller"/>
-  
+    
 
     <!-- rviz -->
 
@@ -111,7 +101,7 @@
             type="robot_state_publisher"
             respawn="false"
             output="screen">
-        <remap from="robot_description" to="$(arg ns2)/robot_description" />   
+        <remap from="robot_description" to="$(arg ns2)/robot_description" />       
         <remap from="/joint_states" to="/$(arg ns2)/franka_state_controller/joint_states"/>
         <param name="publish_frequency" type="double" value="50.0" />
         <param name="tf_prefix" type="string" value="" />
@@ -119,7 +109,6 @@
 
     <!-- Launch visualization in rviz -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/config/dual_panda.rviz" required="true" />
-
 
     <!-- Starting DualCartesianMotionController_publisher -->
     <node   name="DualCartesianMotionController_publisher" 
@@ -129,3 +118,4 @@
     </node>
 
 </launch>
+
