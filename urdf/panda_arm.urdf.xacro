@@ -24,8 +24,11 @@
 
     <link name="$(arg robot_name)_camera">
       <visual>
-        <geometry>
+        <!--geometry>
           <box size="0.04 0.18 0.047"/>
+        </geometry-->
+        <geometry>
+          <mesh filename="package://aescape_panda_simulator/meshes/visual/kinect.dae"/>
         </geometry>
       </visual>
       <collision>
@@ -48,7 +51,7 @@
 
     <gazebo reference="$(arg robot_name)_camera">
       <sensor name="$camera" type="depth">
-        <update_rate>20</update_rate>
+        <update_rate>10</update_rate>
         <camera>
           <horizontal_fov>1.047198</horizontal_fov>
           <image>
