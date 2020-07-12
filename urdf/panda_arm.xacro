@@ -9,18 +9,17 @@
       </joint>
     </xacro:unless>
 
-    <xacro:property name="joint_damping" value="1.0"/>
+    <!--xacro:property name="joint_damping" value="1.0"/>
     <xacro:unless value="${in_gazebo == 'false'}">
-
       <link name="world" />
-
       <joint name="robot_to_world" type="fixed">
         <parent link="world" />
         <child link="${arm_id}_link0" />
         <origin rpy="${rpy}" xyz="${xyz}"/>
         <dynamics damping="${joint_damping}"/>
       </joint>
-    </xacro:unless>
+      
+    </xacro:unless-->
 
     <link name="${arm_id}_link0">
       <visual>
