@@ -58,7 +58,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: left_arm_base_link
+      Reference Frame: left_base_link
       Value: true
     - Class: rviz/TF
       Enabled: true
@@ -69,45 +69,45 @@ Visualization Manager:
           Value: true
         canonical_smpl_origin:
           Value: true
-        left_arm_base_link:
+        left_base_link:
           Value: true
-        left_arm_link0:
+        left_link0:
           Value: true
-        left_arm_link1:
+        left_link1:
           Value: true
-        left_arm_link2:
+        left_link2:
           Value: true
-        left_arm_link3:
+        left_link3:
           Value: true
-        left_arm_link4:
+        left_link4:
           Value: true
-        left_arm_link5:
+        left_link5:
           Value: true
-        left_arm_link6:
+        left_link6:
           Value: true
-        left_arm_link7:
+        left_link7:
           Value: true
-        left_arm_link8:
+        left_link8:
           Value: true
-        right_arm_base_link:
+        right_base_link:
           Value: true
-        right_arm_link0:
+        right_link0:
           Value: true
-        right_arm_link1:
+        right_link1:
           Value: true
-        right_arm_link2:
+        right_link2:
           Value: true
-        right_arm_link3:
+        right_link3:
           Value: true
-        right_arm_link4:
+        right_link4:
           Value: true
-        right_arm_link5:
+        right_link5:
           Value: true
-        right_arm_link6:
+        right_link6:
           Value: true
-        right_arm_link7:
+        right_link7:
           Value: true
-        right_arm_link8:
+        right_link8:
           Value: true
         table_center:
           Value: true
@@ -117,33 +117,28 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        left_arm_base_link:
-          left_arm_link0:
-            left_arm_link1:
-              left_arm_link2:
-                left_arm_link3:
-                  left_arm_link4:
-                    left_arm_link5:
-                      left_arm_link6:
-                        left_arm_link7:
-                          left_arm_link8:
+        left_base_link:
+          left_link0:
+            left_link1:
+              left_link2:
+                left_link3:
+                  left_link4:
+                    left_link5:
+                      left_link6:
+                        left_link7:
+                          left_link8:
                             {}
-          right_arm_base_link:
-            right_arm_link0:
-              right_arm_link1:
-                right_arm_link2:
-                  right_arm_link3:
-                    right_arm_link4:
-                      right_arm_link5:
-                        right_arm_link6:
-                          right_arm_link7:
-                            right_arm_link8:
+          right_base_link:
+            right_link0:
+              right_link1:
+                right_link2:
+                  right_link3:
+                    right_link4:
+                      right_link5:
+                        right_link6:
+                          right_link7:
+                            right_link8:
                               {}
-        table_center:
-          canonical_body_origin:
-            {}
-          canonical_smpl_origin:
-            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -164,100 +159,100 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_arm_base_link:
+        left_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_arm_link0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_arm_link1:
+        left_link0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_arm_link2:
+        left_link1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_arm_link3:
+        left_link2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_arm_link4:
+        left_link3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_arm_link5:
+        left_link4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_arm_link6:
+        left_link5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_arm_link7:
+        left_link6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_arm_link8:
+        left_link7:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        right_arm_link0:
+        left_link8:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_link1:
+        right_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_link0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_link2:
+        right_link1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_link3:
+        right_link2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_link4:
+        right_link3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_link5:
+        right_link4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_link6:
+        right_link5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_link7:
+        right_link6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_arm_link8:
+        right_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_link8:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -299,7 +294,7 @@ Visualization Manager:
       Shaft Length: 1
       Shaft Radius: 0.05000000074505806
       Shape: Axes
-      Topic: /left_arm/robot_goal
+      Topic: /left/robot_goal
       Unreliable: false
       Value: true
     - Class: rviz/InteractiveMarkers
@@ -309,7 +304,7 @@ Visualization Manager:
       Show Axes: false
       Show Descriptions: false
       Show Visual Aids: false
-      Update Topic: /left_arm/motion_control_handle/update
+      Update Topic: /left/motion_control_handle/update
       Value: true
     - Alpha: 1
       Arrow Width: 0.10000000149011612
@@ -337,7 +332,7 @@ Visualization Manager:
       Shaft Length: 1
       Shaft Radius: 0.05000000074505806
       Shape: Axes
-      Topic: /right_arm/robot_goal
+      Topic: /right/robot_goal
       Unreliable: false
       Value: true
     - Class: rviz/InteractiveMarkers
@@ -347,13 +342,13 @@ Visualization Manager:
       Show Axes: false
       Show Descriptions: false
       Show Visual Aids: false
-      Update Topic: /right_arm/motion_control_handle/update
+      Update Topic: /right/motion_control_handle/update
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: left_arm_base_link
+    Fixed Frame: left_base_link
     Frame Rate: 30
   Name: root
   Tools:

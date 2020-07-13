@@ -6,12 +6,12 @@
   <xacro:arg name="use_gazebo" default="true"/>
 
   <xacro:macro name="arm" params="arm_id:='panda' use_gazebo:='true'">
-    <link name="${arm_id}_arm_base_link"/>
-    <xacro:panda_arm arm_id="${arm_id}_arm" connected_to="${arm_id}_arm_base_link" in_gazebo="${use_gazebo}"  xyz="0 0 0" rpy="0 0 0"/>
+    <link name="${arm_id}_base_link"/>
+    <xacro:panda_arm arm_id="${arm_id}" connected_to="${arm_id}_base_link" in_gazebo="${use_gazebo}"  xyz="0 0 0" rpy="0 0 0"/>
   </xacro:macro>
 
   <xacro:macro name="tool" params="rpy:='${pi/2} 0 0' arm_id:='panda'">
-      <link name="${arm_id}_arm_tool_link">      
+      <link name="${arm_id}_tool_link">      
       <visual>
         <geometry>
           <mesh filename="package://aescape_gazebo/meshes/visual/tool.dae" scale="0.019 0.019 0.019"/>>
@@ -28,17 +28,17 @@
         <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
       </inertial>
     </link>
-    <joint name="${arm_id}_arm_tool_joint" type="fixed">
+    <joint name="${arm_id}_tool_joint" type="fixed">
       <origin rpy="${rpy}" xyz="-0.02 0.0 0.046"/>
-      <parent link="${arm_id}_arm_link8"/>
-      <child link="${arm_id}_arm_tool_link"/>
+      <parent link="${arm_id}_link8"/>
+      <child link="${arm_id}_tool_link"/>
       <axis xyz="0 0 1"/>
     </joint>
   </xacro:macro>
 
-  <joint name="right_arm_base_link_calibration" type="fixed">
-    <parent link="left_arm_base_link"/>
-    <child link="right_arm_base_link"/>
+  <joint name="right_base_link_calibration" type="fixed">
+    <parent link="left_base_link"/>
+    <child link="right_base_link"/>
     <origin xyz="1.0176 0.0111 -0.0046" rpy="0 0 ${pi}" /> <!-- Default Values -->
   </joint>
 
@@ -52,11 +52,11 @@
     <xacro:include filename="$(find aescape_gazebo)/urdf/panda.gazebo.xacro"/>
     <xacro:include filename="$(find aescape_gazebo)/urdf/panda.transmission.xacro"/>
 
-    <xacro:panda_gazebo robot_name="left_arm"/>
-    <xacro:panda_gazebo robot_name="right_arm"/>
+    <xacro:panda_gazebo robot_name="left"/>
+    <xacro:panda_gazebo robot_name="right"/>
 
-    <xacro:panda_transmission robot_name="left_arm"/>
-    <xacro:panda_transmission robot_name="right_arm"/>
+    <xacro:panda_transmission robot_name="left"/>
+    <xacro:panda_transmission robot_name="right"/>
  
   </xacro:if>
 
@@ -83,7 +83,7 @@
   </link>
 
   <joint name="table_center_calibration" type="floating">
-    <parent link="left_arm_base_link"/>
+    <parent link="left_base_link"/>
     <child link="table_center"/>
     <origin xyz="0.5058 -0.023642 0.3334" rpy="0 0 0" /> <!-- Default Values -->
   </joint>

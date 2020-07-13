@@ -11,7 +11,7 @@
             type="spawner" 
             respawn="false"
             output="screen" 
-            ns="left_arm"
+            ns="left"
             args="joint_state_controller cartesian_motion_controller $(arg extra_controller)"/> 
             
     <!-- Right: Load the controller_spawner -->
@@ -20,7 +20,7 @@
             type="spawner" 
             respawn="false"
             output="screen" 
-            ns="right_arm"
+            ns="right"
             args="joint_state_controller cartesian_motion_controller $(arg extra_controller)"/>
 
 </launch>

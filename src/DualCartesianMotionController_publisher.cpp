@@ -9,8 +9,8 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "CartesianMotionController_publisher");
     ros::NodeHandle n;
 
-    ros::Publisher LeftArm_cartesian_motion_controller  = n.advertise<geometry_msgs::PoseStamped>("/left_arm/robot_goal", 1000);
-    ros::Publisher RightArm_cartesian_motion_controller = n.advertise<geometry_msgs::PoseStamped>("/right_arm/robot_goal", 1000);
+    ros::Publisher LeftArm_cartesian_motion_controller  = n.advertise<geometry_msgs::PoseStamped>("/left/robot_goal", 1000);
+    ros::Publisher RightArm_cartesian_motion_controller = n.advertise<geometry_msgs::PoseStamped>("/right/robot_goal", 1000);
     ros::Rate loop_rate(50);
   
     int index = 0;
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     ros::Duration(2).sleep();
 
     // Left arm Pose
-    LeftArm_msg.header.frame_id = "left_arm_link0";
+    LeftArm_msg.header.frame_id = "left_link0";
     LeftArm_msg.pose.position.x = 0.350;
     LeftArm_msg.pose.position.y = 0;
     LeftArm_msg.pose.position.z = 0.600;
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     LeftArm_msg.pose.orientation.w = 0.707;
 
     // Right arm Pose
-    RightArm_msg.header.frame_id = "right_arm_link0";
+    RightArm_msg.header.frame_id = "right_link0";
     RightArm_msg.pose.position.x = 0.350;
     RightArm_msg.pose.position.y = 0;
     RightArm_msg.pose.position.z = 0.600;

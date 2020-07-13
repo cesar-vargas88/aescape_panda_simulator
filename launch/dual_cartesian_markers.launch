@@ -1,8 +1,8 @@
 <launch>
 
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/robot.urdf.xacro'" />
-    <param  name="left_arm/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=left_arm"/>
-    <param  name="right_arm/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=right_arm"/>
+    <param  name="left/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=left"/>
+    <param  name="right/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=right"/>
 
     <include file="$(find aescape_gazebo)/launch/gazebo.launch"/>
     <include file="$(find aescape_gazebo)/launch/controllers.launch"> 
