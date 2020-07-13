@@ -1,9 +1,0 @@
-<?xml version="0.0.1" ?>
-<launch>
-  <!-- All core functionality -->
-
-  <include file="$(find aescape_panda_simulator)/launch/integration/controller_manager.launch"/>
-
-  <include file="$(find demobot)/launch/support.launch"/>
-
-</launch>

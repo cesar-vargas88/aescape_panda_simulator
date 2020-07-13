@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+
+  <node name="joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
+    <rosparam param="source_list">[left_arm/joint_states, right_arm/joint_states] </rosparam>
+    <param name="rate" value="30"/>
+    <param name="use_gui" value="false"/>
+  </node>
+
+  <!--node name="joint_state_desired_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
+    <rosparam param="source_list">[/left/franka_state_controller/joint_states_desired,/right/franka_state_controller/joint_states_desired] </rosparam>
+    <param name="rate" value="30"/>
+    <remap from="/joint_states" to="/joint_states_desired" />
+  </node-->
+  
+  <!--node name="calibration_values" pkg="mutable_transform_publisher" type="mutable_transform_pub" >
+    <param name="yaml_path" value="$(find aescape_description)/config/mutable_transforms.yaml" />
+    <param name="commit" value="false" />
+    <param name="period" value="1.0" />
+  </node-->
+
+  <!--rosparam file="$(find aescape_description)/config/end_effector_params.yaml"/-->
+
+  <!--When the realsense cameras are not running these publishers are needed to publish the last link in the camera frame tree-->
+  <!--node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0.5 -0.5 0.5 -0.5 /real_red_link /real_red_depth_optical_frame 1" /-->
+  <!--node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0 0 0 0.5 -0.5 0.5 -0.5 /real_green_link /real_green_depth_optical_frame 1" /-->
+
+</launch>

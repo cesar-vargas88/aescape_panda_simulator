@@ -1,22 +1,30 @@
-panda:
+left_arm:
     
     joint_state_controller:
         type: joint_state_controller/JointStateController
         publish_rate: 50
+        joint_names:
+            - right_arm_joint1
+            - right_arm_joint2
+            - right_arm_joint3
+            - right_arm_joint4
+            - right_arm_joint5
+            - right_arm_joint6
+            - right_arm_joint7
 
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
-        end_effector_link: "panda_link8"
-        robot_base_link: "panda_link0"
+        end_effector_link: "left_arm_link8"
+        robot_base_link: "left_arm_link0"
         target_frame_topic: "robot_goal"
         joints:
-            - panda_joint1
-            - panda_joint2
-            - panda_joint3
-            - panda_joint4
-            - panda_joint5
-            - panda_joint6
-            - panda_joint7
+            - left_arm_joint1
+            - left_arm_joint2
+            - left_arm_joint3
+            - left_arm_joint4
+            - left_arm_joint5
+            - left_arm_joint6
+            - left_arm_joint7
 
         pd_gains:
             trans_x: {p: 10.0, i: 0.0, d: 0.0}
@@ -28,80 +36,45 @@ panda:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
-        end_effector_link: "panda_link8"
-        robot_base_link: "panda_link0"
-        target_frame_topic: "/panda/robot_goal"
+        end_effector_link: "left_arm_link8"
+        robot_base_link: "left_arm_link0"
+        target_frame_topic: "/left_arm/robot_goal"
         joints:
-            - panda_joint1
-            - panda_joint2
-            - panda_joint3
-            - panda_joint4
-            - panda_joint5
-            - panda_joint6
-            - panda_joint7
+            - left_arm_joint1
+            - left_arm_joint2
+            - left_arm_joint3
+            - left_arm_joint4
+            - left_arm_joint5
+            - left_arm_joint6
+            - left_arm_joint7
 
-
-left:
-    
-    joint_state_controller:
-        type: joint_state_controller/JointStateController
-        publish_rate: 50
-
-    cartesian_motion_controller:
-        type: "position_controllers/CartesianMotionController"
-        end_effector_link: "left_link8"
-        robot_base_link: "left_link0"
-        target_frame_topic: "robot_goal"
-        joints:
-            - left_joint1
-            - left_joint2
-            - left_joint3
-            - left_joint4
-            - left_joint5
-            - left_joint6
-            - left_joint7
-
-        pd_gains:
-            trans_x: {p: 10.0, i: 0.0, d: 0.0}
-            trans_y: {p: 10.0, i: 0.0, d: 0.0}
-            trans_z: {p: 10.0, i: 0.0, d: 0.0}
-            rot_x: {p: 10.0, i: 0.0, d: 0.0}
-            rot_y: {p: 10.0, i: 0.0, d: 0.0}
-            rot_z: {p: 10.0, i: 0.0, d: 0.0}
-
-    motion_control_handle:
-        type: "cartesian_controllers/MotionControlHandle"
-        end_effector_link: "left_link8"
-        robot_base_link: "left_link0"
-        target_frame_topic: "/left/robot_goal"
-        joints:
-            - left_joint1
-            - left_joint2
-            - left_joint3
-            - left_joint4
-            - left_joint5
-            - left_joint6
-            - left_joint7
-
-right:
+right_arm:
 
     joint_state_controller:
         type: joint_state_controller/JointStateController
         publish_rate: 50
-
+        joint_names:
+            - right_arm_joint1
+            - right_arm_joint2
+            - right_arm_joint3
+            - right_arm_joint4
+            - right_arm_joint5
+            - right_arm_joint6
+            - right_arm_joint7
+            
     cartesian_motion_controller:
         type: "position_controllers/CartesianMotionController"
-        end_effector_link: "right_link8"
-        robot_base_link: "right_link0"
+        end_effector_link: "right_arm_link8"
+        robot_base_link: "right_arm_link0"
         target_frame_topic: "robot_goal"
         joints:
-            - right_joint1
-            - right_joint2
-            - right_joint3
-            - right_joint4
-            - right_joint5
-            - right_joint6
-            - right_joint7
+            - right_arm_joint1
+            - right_arm_joint2
+            - right_arm_joint3
+            - right_arm_joint4
+            - right_arm_joint5
+            - right_arm_joint6
+            - right_arm_joint7
 
         pd_gains:
             trans_x: {p: 10.0, i: 0.0, d: 0.0}
@@ -113,14 +86,14 @@ right:
 
     motion_control_handle:
         type: "cartesian_controllers/MotionControlHandle"
-        end_effector_link: "right_link8"
-        robot_base_link: "right_link0"
-        target_frame_topic: "/right/robot_goal"
+        end_effector_link: "right_arm_link8"
+        robot_base_link: "right_arm_link0"
+        target_frame_topic: "/right_arm/robot_goal"
         joints:
-            - right_joint1
-            - right_joint2
-            - right_joint3
-            - right_joint4
-            - right_joint5
-            - right_joint6
-            - right_joint7
+            - right_arm_joint1
+            - right_arm_joint2
+            - right_arm_joint3
+            - right_arm_joint4
+            - right_arm_joint5
+            - right_arm_joint6
+            - right_arm_joint7

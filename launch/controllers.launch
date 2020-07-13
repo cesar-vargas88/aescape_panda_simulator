@@ -1,0 +1,26 @@
+<launch>
+    <!-- This argument defines the left arm workspace -->
+    <arg name="extra_controller" default=""/>
+
+    <!-- Load controller configuration -->
+    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
+
+    <!-- Left: Load the controller_spawner -->
+    <node   name="controller_spawner" 
+            pkg="controller_manager" 
+            type="spawner" 
+            respawn="false"
+            output="screen" 
+            ns="left_arm"
+            args="joint_state_controller cartesian_motion_controller $(arg extra_controller)"/> 
+            
+    <!-- Right: Load the controller_spawner -->
+    <node   name="controller_spawner" 
+            pkg="controller_manager" 
+            type="spawner" 
+            respawn="false"
+            output="screen" 
+            ns="right_arm"
+            args="joint_state_controller cartesian_motion_controller $(arg extra_controller)"/>
+
+</launch>

@@ -1,0 +1,35 @@
+<launch>
+
+    <!-- We resume the logic in empty_world.launch, changing the name of the world to be launched -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">        
+        <arg name="paused" value="true"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="recording" value="false"/>
+        <arg name="debug" value="false"/>
+        <arg name="verbose" value="false"/>
+    </include>
+
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <node name="urdf_spawner" 
+        pkg="gazebo_ros" 
+        type="spawn_model" 
+        respawn="false" 
+        output="screen"
+        args="-urdf -model aescape -param robot_description 
+        -J left_arm_joint1  0.000 
+        -J left_arm_joint2 -0.500 
+        -J left_arm_joint3  0.000
+        -J left_arm_joint4 -2.000 
+        -J left_arm_joint5  0.000
+        -J left_arm_joint6  1.500
+        -J left_arm_joint7  0.000 
+        -J right_arm_joint1  0.000 
+        -J right_arm_joint2 -0.500 
+        -J right_arm_joint3  0.000
+        -J right_arm_joint4 -2.000 
+        -J right_arm_joint5  0.000
+        -J right_arm_joint6  1.500
+        -J right_arm_joint7  0.000 -unpause"/>
+
+</launch>
