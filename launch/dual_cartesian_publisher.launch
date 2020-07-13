@@ -1,17 +1,17 @@
 <launch>
 
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/robot.urdf.xacro'" />
-    <param  name="left_arm/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=left_arm"/>
-    <param  name="right_arm/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_panda_simulator)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=right_arm"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/robot.urdf.xacro'" />
+    <param  name="left_arm/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=left_arm"/>
+    <param  name="right_arm/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=right_arm"/>
 
-    <include file="$(find aescape_panda_simulator)/launch/gazebo.launch"/>
-    <include file="$(find aescape_panda_simulator)/launch/controllers.launch"/>
-    <include file="$(find aescape_panda_simulator)/launch/robot.launch"/>
+    <include file="$(find aescape_gazebo)/launch/gazebo.launch"/>
+    <include file="$(find aescape_gazebo)/launch/controllers.launch"/>
+    <include file="$(find aescape_gazebo)/launch/robot.launch"/>
  
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_panda_simulator)/rviz/visualize.rviz" required="true" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_gazebo)/rviz/visualize.rviz" required="true" />
 
     <node   name="DualCartesianMotionController_publisher" 
-            pkg="aescape_panda_simulator" 
+            pkg="aescape_gazebo" 
             type="DualCartesianMotionController_publisher"
             output="screen">
     </node>

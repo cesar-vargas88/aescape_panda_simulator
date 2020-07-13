@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(aescape_panda_simulator)
+project(aescape_gazebo)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -11,7 +11,10 @@ find_package(catkin REQUIRED COMPONENTS
   rviz
   tf
   urdf
-  xacro)
+  xacro
+  sensor_msgs
+  message_generation
+  geometry_msgs)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -20,6 +23,15 @@ find_package(catkin REQUIRED COMPONENTS
 ## Declare ROS messages, services and actions ##
 ################################################
 
+add_message_files(
+  # DIRECTORY msg
+  FILES
+  ArmGoal.msg)
+
+generate_messages(
+  DEPENDENCIES
+  geometry_msgs
+)
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
 ################################################

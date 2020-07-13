@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
 
-  <xacro:include filename="$(find aescape_panda_simulator)/urdf/depth_camera.xacro"/>
+  <xacro:include filename="$(find aescape_gazebo)/urdf/depth_camera.xacro"/>
   
   <xacro:depth_camera camera_name="camera" xyz="0 0 0.1" rpy="0.0 0.0 0.0"/>
 

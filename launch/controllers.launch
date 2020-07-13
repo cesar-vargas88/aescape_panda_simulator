@@ -3,7 +3,7 @@
     <arg name="extra_controller" default=""/>
 
     <!-- Load controller configuration -->
-    <rosparam   file="$(find aescape_panda_simulator)/config/controllers.yaml" command="load"/>
+    <rosparam   file="$(find aescape_gazebo)/config/controllers.yaml" command="load"/>
 
     <!-- Left: Load the controller_spawner -->
     <node   name="controller_spawner" 

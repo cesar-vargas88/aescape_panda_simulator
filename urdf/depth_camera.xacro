@@ -9,7 +9,7 @@
           <box size="0.04 0.18 0.047"/>
         </geometry>
         <!--geometry>
-          <mesh filename="package://aescape_panda_simulator/meshes/visual/kinect.dae"/>
+          <mesh filename="package://aescape_gazebo/meshes/visual/kinect.dae"/>
         </geometry-->
       </visual>
       <collision>
