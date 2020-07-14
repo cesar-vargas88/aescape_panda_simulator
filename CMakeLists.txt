@@ -14,7 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
   xacro
   sensor_msgs
   message_generation
-  geometry_msgs)
+  geometry_msgs
+  aescape_control)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -42,8 +43,8 @@ generate_messages(
 
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES aescape_panda_simulator
-#  CATKIN_DEPENDS geometry_msgs roscpp rviz tf urdf xacro
+#  LIBRARIES aescape_gazebo
+#  CATKIN_DEPENDS geometry_msgs roscpp rviz tf urdf xacro aescape_control
 #  DEPENDS system_lib
 )
 

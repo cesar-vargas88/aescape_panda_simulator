@@ -1,0 +1,15 @@
+<launch>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/robot.urdf.xacro'" />
+    <param  name="left/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=left"/>
+    <param  name="right/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=right"/>
+
+    <include file="$(find aescape_gazebo)/launch/gazebo.launch"/>
+    <include file="$(find aescape_gazebo)/launch/controllers.launch"/>
+    <include file="$(find aescape_gazebo)/launch/robot.launch"/>
+ 
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_gazebo)/rviz/visualize.rviz" required="true" />
+
+    <node pkg="rosbag" type="play" name="player" output="screen" args="--clock $(find aescape_gazebo)/bag/test_dual_arm.bag"/>
+
+</launch>
