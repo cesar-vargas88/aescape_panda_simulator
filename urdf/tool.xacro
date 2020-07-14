@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="tool">
+
+  <xacro:macro name="tool" params="robot_ns:='' connected_to:='' in_gazebo='true' rpy:='0 0 0' xyz:='0 0 0' ">
+  
+    <link name="${arm_id}_arm_tool_link">      
+      <visual>
+        <geometry>
+          <mesh filename="package://aescape_gazebo/meshes/visual/tool.dae" scale="0.019 0.019 0.019"/>>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://aescape_gazebo/meshes/collision/tool.stl" scale="0.019 0.019 0.019"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.0"/>
+        <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+      </inertial>
+    </link>
+
+    <xacro:unless value="${connected_to == ''}">
+      <joint name="${robot_ns}_arm_tool_joint" type="fixed">
+        <parent link="${connected_to}"/>
+        <child link="${robot_ns}_arm_tool_link"/>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+        <axis xyz="0 0 1"/>
+      </joint>
+    </xacro:unless>
+
+    <gazebo reference="${arm_id}_arm_tool_link">
+      <material>Gazebo/Grey</material>
+      <mu1>0.2</mu1>
+      <mu2>0.2</mu2>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

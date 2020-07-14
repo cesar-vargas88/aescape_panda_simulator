@@ -7,6 +7,9 @@ Panels:
         - /Global Options1
         - /Status1
         - /Grid1
+        - /TF1
+        - /TF1/Frames1
+        - /TF1/Tree1
         - /RobotModel1
         - /RobotModel1/Links1
         - /WrenchStamped1
@@ -62,51 +65,55 @@ Visualization Manager:
       Frames:
         All Enabled: false
         canonical_body_origin:
-          Value: true
+          Value: false
         canonical_smpl_origin:
-          Value: true
+          Value: false
         left_arm_base_link:
-          Value: true
+          Value: false
         left_arm_link0:
-          Value: true
+          Value: false
         left_arm_link1:
-          Value: true
+          Value: false
         left_arm_link2:
-          Value: true
+          Value: false
         left_arm_link3:
-          Value: true
+          Value: false
         left_arm_link4:
-          Value: true
+          Value: false
         left_arm_link5:
-          Value: true
+          Value: false
         left_arm_link6:
-          Value: true
+          Value: false
         left_arm_link7:
-          Value: true
+          Value: false
         left_arm_link8:
           Value: true
+        left_arm_tool_link:
+          Value: false
         right_arm_base_link:
-          Value: true
+          Value: false
         right_arm_link0:
-          Value: true
+          Value: false
         right_arm_link1:
-          Value: true
+          Value: false
         right_arm_link2:
-          Value: true
+          Value: false
         right_arm_link3:
-          Value: true
+          Value: false
         right_arm_link4:
-          Value: true
+          Value: false
         right_arm_link5:
-          Value: true
+          Value: false
         right_arm_link6:
-          Value: true
+          Value: false
         right_arm_link7:
-          Value: true
+          Value: false
         right_arm_link8:
           Value: true
+        right_arm_tool_link:
+          Value: false
         table_center:
-          Value: true
+          Value: false
       Marker Scale: 0.5
       Name: TF
       Show Arrows: false
@@ -123,7 +130,8 @@ Visualization Manager:
                       left_arm_link6:
                         left_arm_link7:
                           left_arm_link8:
-                            {}
+                            left_arm_tool_link:
+                              {}
           right_arm_base_link:
             right_arm_link0:
               right_arm_link1:
@@ -134,7 +142,8 @@ Visualization Manager:
                         right_arm_link6:
                           right_arm_link7:
                             right_arm_link8:
-                              {}
+                              right_arm_tool_link:
+                                {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -203,6 +212,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        left_arm_tool_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
           Value: true
         right_arm_base_link:
           Alpha: 1
@@ -252,6 +265,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        right_arm_tool_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
           Value: true
         table_center:
           Alpha: 1
@@ -267,7 +284,7 @@ Visualization Manager:
     - Alpha: 1
       Arrow Width: 0.10000000149011612
       Class: rviz/WrenchStamped
-      Enabled: true
+      Enabled: false
       Force Arrow Scale: 0.019999999552965164
       Force Color: 204; 51; 51
       Hide Small Values: true
@@ -277,7 +294,7 @@ Visualization Manager:
       Torque Arrow Scale: 0.5
       Torque Color: 204; 204; 51
       Unreliable: false
-      Value: true
+      Value: false
     - Class: rviz/InteractiveMarkers
       Enable Transparency: false
       Enabled: true
@@ -290,7 +307,7 @@ Visualization Manager:
     - Alpha: 1
       Arrow Width: 0.10000000149011612
       Class: rviz/WrenchStamped
-      Enabled: true
+      Enabled: false
       Force Arrow Scale: 0.019999999552965164
       Force Color: 204; 51; 51
       Hide Small Values: true
@@ -300,7 +317,7 @@ Visualization Manager:
       Torque Arrow Scale: 0.5
       Torque Color: 204; 204; 51
       Unreliable: false
-      Value: true
+      Value: false
     - Class: rviz/InteractiveMarkers
       Enable Transparency: false
       Enabled: true
@@ -338,7 +355,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.607628107070923
+      Distance: 2.6747870445251465
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -353,10 +370,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.46479758620262146
+      Pitch: 0.35479748249053955
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.207162380218506
+      Yaw: 5.427155017852783
     Saved: ~
 Window Geometry:
   Displays:

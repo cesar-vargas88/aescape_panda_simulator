@@ -7,9 +7,9 @@
     <include file="$(find aescape_gazebo)/launch/gazebo.launch"/>
     <include file="$(find aescape_gazebo)/launch/controllers.launch"/>
     <include file="$(find aescape_gazebo)/launch/robot.launch"/>
- 
+        
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_gazebo)/rviz/visualize.rviz" required="true" />
 
     <node pkg="rosbag" type="play" name="player" output="screen" args="--clock $(find aescape_gazebo)/bag/test_dual_arm.bag"/>
-
+    
 </launch>

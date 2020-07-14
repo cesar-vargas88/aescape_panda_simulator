@@ -222,7 +222,7 @@
       <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
       <dynamics damping="1.0" friction="0.5"/>
     </joint>
-    <link name="${arm_id}_link8">      
+    <!--link name="${arm_id}_link8">      
       <visual>
         <geometry>
           <mesh filename="package://${description_pkg}/meshes/visual/tool.dae" scale="0.019 0.019 0.019"/>>
@@ -244,6 +244,20 @@
       <parent link="${arm_id}_link7"/>
       <child link="${arm_id}_link8"/>
       <axis xyz="0 0 1"/>
+    </joint-->
+    <link name="${arm_id}_link8">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.0"/>
+        <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+      </inertial>
+    </link>
+    <joint name="${arm_id}_joint8" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <parent link="${arm_id}_link7"/>
+      <child link="${arm_id}_link8"/>
+      <axis xyz="0 0 0"/>
     </joint>
+
   </xacro:macro>
 </robot>
