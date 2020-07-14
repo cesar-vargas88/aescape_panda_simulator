@@ -2,6 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
 
   <xacro:arg name="robot_name" default="panda"/>
+  <xacro:arg name="robot_ns" default="panda"/>
   <xacro:arg name="load_gazebo" default="false"/>
   <xacro:arg name="origin_y" default="0.0"/>
 
@@ -14,18 +15,13 @@
   </xacro:unless>
 
   <xacro:if value="$(arg load_gazebo)">  
+    <xacro:include filename="$(find aescape_gazebo)/urdf/panda.gazebo.xacro"/>
+    <xacro:include filename="$(find aescape_gazebo)/urdf/panda.transmission.xacro"/>
     
     <xacro:panda_arm in_gazebo="true" connected_to="world" arm_id="$(arg robot_name)" xyz="0.0 $(arg origin_y) 0.0"/>
-
-    <xacro:include filename="$(find aescape_gazebo)/urdf/panda.gazebo.xacro"/>
     <xacro:panda_gazebo robot_name="$(arg robot_name)"/>
-
-    <xacro:include filename="$(find aescape_gazebo)/urdf/panda.transmission.xacro"/>
-    <xacro:panda_transmission robot_name="$(arg robot_name)"/>
+    <xacro:panda_transmission robot_name="$(arg robot_name)" robot_ns="$(arg robot_ns)"/>
   
-    <xacro:include filename="$(find aescape_gazebo)/urdf/depth_camera.xacro"/>
-    <xacro:depth_camera camera_name="$(arg robot_name)" connected_to="world" xyz="1.0 $(arg origin_y) 1.0" rpy="0.0 0.7854 3.1416"/>
-
   </xacro:if>
 
 </robot>

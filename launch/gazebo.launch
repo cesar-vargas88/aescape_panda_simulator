@@ -17,19 +17,19 @@
         respawn="false" 
         output="screen"
         args="-urdf -model aescape -param robot_description 
-        -J left_joint1  0.000 
-        -J left_joint2 -0.500 
-        -J left_joint3  0.000
-        -J left_joint4 -2.000 
-        -J left_joint5  0.000
-        -J left_joint6  1.500
-        -J left_joint7  0.000 
-        -J right_joint1  0.000 
-        -J right_joint2 -0.500 
-        -J right_joint3  0.000
-        -J right_joint4 -2.000 
-        -J right_joint5  0.000
-        -J right_joint6  1.500
-        -J right_joint7  0.000 -unpause"/>
+        -J left_arm_joint1  0.000 
+        -J left_arm_joint2 -0.500 
+        -J left_arm_joint3  0.000
+        -J left_arm_joint4 -2.000 
+        -J left_arm_joint5  0.000
+        -J left_arm_joint6  1.500
+        -J left_arm_joint7  0.000 
+        -J right_arm_joint1  0.000 
+        -J right_arm_joint2 -0.500 
+        -J right_arm_joint3  0.000
+        -J right_arm_joint4 -2.000 
+        -J right_arm_joint5  0.000
+        -J right_arm_joint6  1.500
+        -J right_arm_joint7  0.000 -unpause"/>
 
 </launch>

@@ -4,8 +4,12 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /Global Options1
+        - /Status1
+        - /Grid1
+        - /RobotModel1
         - /RobotModel1/Links1
-        - /WrenchStamped1/Status1
+        - /WrenchStamped1
       Splitter Ratio: 0.6427221298217773
     Tree Height: 630
   - Class: rviz/Selection
@@ -50,7 +54,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: left_base_link
+      Reference Frame: left_arm_base_link
       Value: true
     - Class: rviz/TF
       Enabled: true
@@ -61,45 +65,45 @@ Visualization Manager:
           Value: true
         canonical_smpl_origin:
           Value: true
-        left_base_link:
+        left_arm_base_link:
           Value: true
-        left_link0:
+        left_arm_link0:
           Value: true
-        left_link1:
+        left_arm_link1:
           Value: true
-        left_link2:
+        left_arm_link2:
           Value: true
-        left_link3:
+        left_arm_link3:
           Value: true
-        left_link4:
+        left_arm_link4:
           Value: true
-        left_link5:
+        left_arm_link5:
           Value: true
-        left_link6:
+        left_arm_link6:
           Value: true
-        left_link7:
+        left_arm_link7:
           Value: true
-        left_link8:
+        left_arm_link8:
           Value: true
-        right_base_link:
+        right_arm_base_link:
           Value: true
-        right_link0:
+        right_arm_link0:
           Value: true
-        right_link1:
+        right_arm_link1:
           Value: true
-        right_link2:
+        right_arm_link2:
           Value: true
-        right_link3:
+        right_arm_link3:
           Value: true
-        right_link4:
+        right_arm_link4:
           Value: true
-        right_link5:
+        right_arm_link5:
           Value: true
-        right_link6:
+        right_arm_link6:
           Value: true
-        right_link7:
+        right_arm_link7:
           Value: true
-        right_link8:
+        right_arm_link8:
           Value: true
         table_center:
           Value: true
@@ -109,27 +113,27 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        left_base_link:
-          left_link0:
-            left_link1:
-              left_link2:
-                left_link3:
-                  left_link4:
-                    left_link5:
-                      left_link6:
-                        left_link7:
-                          left_link8:
+        left_arm_base_link:
+          left_arm_link0:
+            left_arm_link1:
+              left_arm_link2:
+                left_arm_link3:
+                  left_arm_link4:
+                    left_arm_link5:
+                      left_arm_link6:
+                        left_arm_link7:
+                          left_arm_link8:
                             {}
-          right_base_link:
-            right_link0:
-              right_link1:
-                right_link2:
-                  right_link3:
-                    right_link4:
-                      right_link5:
-                        right_link6:
-                          right_link7:
-                            right_link8:
+          right_arm_base_link:
+            right_arm_link0:
+              right_arm_link1:
+                right_arm_link2:
+                  right_arm_link3:
+                    right_arm_link4:
+                      right_arm_link5:
+                        right_arm_link6:
+                          right_arm_link7:
+                            right_arm_link8:
                               {}
       Update Interval: 0
       Value: true
@@ -151,100 +155,100 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_base_link:
+        left_arm_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        left_link0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_link1:
+        left_arm_link0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_link2:
+        left_arm_link1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_link3:
+        left_arm_link2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_link4:
+        left_arm_link3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_link5:
+        left_arm_link4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_link6:
+        left_arm_link5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_link7:
+        left_arm_link6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_link8:
+        left_arm_link7:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        right_link0:
+        left_arm_link8:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_link1:
+        right_arm_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right_arm_link0:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_link2:
+        right_arm_link1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_link3:
+        right_arm_link2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_link4:
+        right_arm_link3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_link5:
+        right_arm_link4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_link6:
+        right_arm_link5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_link7:
+        right_arm_link6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_link8:
+        right_arm_link7:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_arm_link8:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -310,7 +314,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: left_base_link
+    Fixed Frame: left_arm_base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -334,7 +338,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.875978946685791
+      Distance: 3.607628107070923
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -349,10 +353,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.2597976326942444
+      Pitch: 0.46479758620262146
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.1921610832214355
+      Yaw: 5.207162380218506
     Saved: ~
 Window Geometry:
   Displays:

@@ -2,12 +2,12 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="panda_transmission" params="robot_name">
+    <xacro:macro name="panda_transmission" params="robot_name robot_ns">
 
         <!-- Load ros control plugin -->
         <gazebo>
             <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-                <robotNamespace>/${robot_name}</robotNamespace>
+                <robotNamespace>/${robot_ns}</robotNamespace>
                 <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
                 <legacyModeNS>true</legacyModeNS>
             </plugin>
@@ -16,7 +16,7 @@
         <!-- Load ft sensor plugin - joint7-->
         <gazebo>
             <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-                <robotNamespace>/${robot_name}</robotNamespace>
+                <robotNamespace>/${robot_ns}</robotNamespace>
                 <updateRate>100.0</updateRate>
                 <topicName>transformed_world</topicName>
                 <jointName>${robot_name}_joint7</jointName>
