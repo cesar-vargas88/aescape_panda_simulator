@@ -35,9 +35,73 @@
     <xacro:panda_transmission robot_name="left_arm" robot_ns="left"/>
     <xacro:panda_transmission robot_name="right_arm" robot_ns="right"/>
 
-    <xacro:depth_camera camera_name="left_camera_base" connected_to="left_arm_base_link" xyz="0.0 0.0 1.0" rpy="0.0 0.0 0.0"/>
-    <xacro:depth_camera camera_name="center_camera_base" connected_to="left_arm_base_link" xyz="0.0 -0.6 1.0" rpy="0.0 0.0 0.0"/>
-    <xacro:depth_camera camera_name="right_camera_base" connected_to="left_arm_base_link" xyz="0.0 -1.2 1.0" rpy="0.0 0.0 0.0"/>
+    <!--
+    - parent: left_arm_base_link
+      child: left_camera_base
+      x: 0.1404396785274887
+      y: -0.05307111179809734
+      z: 1.358923271686402
+      qx: 0.8141408253648392
+      qy: -0.1035370936067316
+      qz: -0.5689034786331804
+      qw: 0.05294918214014413
+    -->
+    <xacro:depth_camera 
+    camera_name="left_camera_base" 
+    connected_to="left_arm_base_link" 
+    xyz="0.1404396785274887 -0.05307111179809734 1.358923271686402" 
+    rpy="2.610 1.156 -0.605"/>
+
+    <!--
+    - Translation: [0.143, -0.021, 1.356]
+    - Rotation: in Quaternion [-0.716, -0.665, -0.052, -0.208]
+            in RPY (radian) [2.759, 0.204, 1.457]
+            in RPY (degree) [158.054, 11.677, 83.483]
+    -->
+    
+    <link name="left_rgb_camera_link"/>
+
+    <joint name="left_arm_base_to_left_rgb_camera_joint" type="fixed">
+      <parent link="left_arm_base_link"/>
+      <child link="left_rgb_camera_link"/>
+      <origin xyz="0.143 -0.021 1.356" rpy="2.759 0.204 1.457" />
+    </joint>
+
+    <!--
+    - parent: left_rgb_camera_link
+      child: center_camera_base
+      x: 0.9361730730167426
+      y: 0.290787205870503
+      z: -0.01642135865139904
+      qx: -0.3264977374886928
+      qy: 0.7636580414712461
+      qz: -0.4407959649381484
+      qw: -0.340476950638661
+    -->
+
+    <xacro:depth_camera 
+    camera_name="center_camera_base" 
+    connected_to="left_rgb_camera_link" 
+    xyz="0.9361730730167426 0.290787205870503 -0.01642135865139904" 
+    rpy="-2.270 -0.941 -2.798"/>
+    
+    <!--
+  - parent: left_rgb_camera_link
+    child: right_camera_base
+    x: 0.07076650529446413
+    y: 0.6961604567394116
+    z: 0.2631112375688656
+    qx: -0.3316925446975479
+    qy: -0.1864996386672192
+    qz: -0.6685085657833876
+    qw: 0.6389790561964096
+    -->
+
+    <xacro:depth_camera 
+    camera_name="right_camera_base" 
+    connected_to="left_rgb_camera_link" 
+    xyz="0.07076650529446413 0.6961604567394116 0.2631112375688656" 
+    rpy="-0.241 -0.750 -1.521"/>
 
   </xacro:if>
 

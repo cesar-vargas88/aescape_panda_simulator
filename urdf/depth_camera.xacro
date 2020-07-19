@@ -3,7 +3,7 @@
 
   <xacro:macro name="depth_camera" params="camera_name:='depth_camera' connected_to:='' in_gazebo='true' xyz:='0 0 0' rpy:='0 0 0'">
     
-    <link name="${camera_name}_camera_link">
+    <link name="${camera_name}">
       <visual>
         <geometry>
           <box size="0.04 0.18 0.047"/>
@@ -27,7 +27,7 @@
 
       <joint name="joint_${camera_name}_camera_to_${connected_to}" type="fixed">
         <parent link="${connected_to}"/>
-        <child link="${camera_name}_camera_link" />
+        <child link="${camera_name}" />
         <origin rpy="${rpy}" xyz="${xyz}"/>
       </joint>
       
@@ -39,7 +39,7 @@
 
       <joint name="joint_${camera_name}_to_world" type="fixed">
         <parent link="world" />
-        <child link="${camera_name}_camera_link" />
+        <child link="${camera_name}" />
         <origin rpy="${rpy}" xyz="${xyz}"/>
       </joint>
 
@@ -47,7 +47,7 @@
 
     <xacro:if value="${in_gazebo}">
 
-      <gazebo reference="${camera_name}_camera_link">
+      <gazebo reference="${camera_name}">
         <sensor name="${camera_name}" type="depth">
           <update_rate>10</update_rate>
           <camera>
