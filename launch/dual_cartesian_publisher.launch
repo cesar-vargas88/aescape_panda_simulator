@@ -5,7 +5,7 @@
     <param  name="right/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=right_arm"/>
 
     <include file="$(find aescape_gazebo)/launch/gazebo.launch"/>
-    <include file="$(find aescape_gazebo)/launch/controllers.launch"/>
+    <!--include file="$(find aescape_gazebo)/launch/controllers.launch"/>
     <include file="$(find aescape_gazebo)/launch/robot.launch"/>
  
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_gazebo)/rviz/visualize.rviz" required="true" />
@@ -14,6 +14,6 @@
             pkg="aescape_gazebo" 
             type="DualCartesianMotionController_publisher"
             output="screen">
-    </node>
+    </node-->
 
 </launch>
