@@ -6,13 +6,11 @@
     <link name="${arm_id}_arm_tool_link">      
       <visual>
         <geometry>
-          <!--mesh filename="package://aescape_gazebo/meshes/visual/tool.dae" scale="0.019 0.019 0.019"/-->
           <mesh filename="package://aescape_gazebo/meshes/visual/left_tp.dae"/>
         </geometry>
       </visual>
       <collision>
         <geometry>
-          <!--mesh filename="package://aescape_gazebo/meshes/visual/tool.stl" scale="0.019 0.019 0.019"/-->
           <mesh filename="package://aescape_gazebo/meshes/visual/left_tp.stl"/>
         </geometry>
       </collision>

@@ -20,8 +20,6 @@
 
   <xacro:arm arm_id="right"/>
   <xacro:arm arm_id="left"/>
-  <!--xacro:tool arm_id="left"  connected_to="left_arm_link8" rpy="${pi/2} 0 0" xyz="-0.02 0.0 0.046"/>
-  <xacro:tool arm_id="right" connected_to="right_arm_link8" rpy="${pi/2} 0 0" xyz="-0.02 0.0 0.046"/-->
   <xacro:tool arm_id="left"  connected_to="left_arm_link8" rpy="0 0 0" xyz="0.0 0.0 0.0"/>
   <xacro:tool arm_id="right" connected_to="right_arm_link8" rpy="0 0 0" xyz="0.0 0.0 0.0"/>
   
