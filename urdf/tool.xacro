@@ -11,7 +11,7 @@
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://aescape_gazebo/meshes/visual/left_tp.stl"/>
+          <mesh filename="package://aescape_gazebo/meshes/collision/left_tp.stl"/>
         </geometry>
       </collision>
       <inertial>
