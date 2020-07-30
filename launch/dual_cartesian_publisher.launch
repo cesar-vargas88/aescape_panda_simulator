@@ -16,4 +16,10 @@
             output="screen">
     </node>
 
+    <node   name="RobotStatus_publisher" 
+            pkg="aescape_gazebo" 
+            type="RobotStatus_publisher"
+            output="screen">
+    </node>
+
 </launch>
