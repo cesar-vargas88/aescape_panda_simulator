@@ -71,4 +71,5 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 add_executable(DualCartesianMotionController_publisher src/DualCartesianMotionController_publisher.cpp)
 target_link_libraries(DualCartesianMotionController_publisher ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})
 
-
+add_executable(RobotStatus_publisher src/RobotStatus_publisher.cpp)
+target_link_libraries(RobotStatus_publisher ${catkin_LIBRARIES} ${std_msgs_LIBRARIES})

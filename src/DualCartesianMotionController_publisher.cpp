@@ -50,7 +50,7 @@ int main(int argc, char **argv)
             LeftArm_msg.pose.position.z -= 0.001;      
         }
         // Left arm: Move down
-        else if (LeftArm_msg.pose.position.z >= 0.450)
+        else if (LeftArm_msg.pose.position.z >= 0.300)
             LeftArm_msg.pose.position.z -= 0.010;      
         // Left arm: Move left
         else if (LeftArm_MoveLeft)
@@ -73,7 +73,7 @@ int main(int argc, char **argv)
             RightArm_msg.pose.position.z -= 0.001;      
         }
         // Right arm: Move down
-        else if (RightArm_msg.pose.position.z >= 0.450)
+        else if (RightArm_msg.pose.position.z >= 0.300)
             RightArm_msg.pose.position.z -= 0.010;      
         // Right arm: Move left
         else if (RightArm_MoveLeft)
