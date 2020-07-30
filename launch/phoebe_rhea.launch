@@ -1,0 +1,39 @@
+<?xml version="0.0.1" ?>
+<launch>
+  <!-- All nodes to run on Phoebe -->
+
+  <rosparam param="enable_statistics">true</rosparam>
+
+  <!-- All core functionality -->
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/robot.urdf.xacro'" />
+  <param  name="left/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=left_arm"/>
+  <param  name="right/robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/panda_arm.urdf.xacro' load_gazebo:=true robot_name:=right_arm"/>
+
+  <include file="$(find aescape_gazebo)/launch/gazebo.launch"/>
+  <include file="$(find aescape_gazebo)/launch/controllers.launch"/>
+  <include file="$(find aescape_gazebo)/launch/robot.launch"/>
+        
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_gazebo)/rviz/visualize.rviz" required="true" />
+
+  <node   name="DualCartesianMotionController_publisher" 
+          pkg="aescape_gazebo" 
+          type="DualCartesianMotionController_publisher"
+          output="screen">
+  </node>
+
+  <node   name="RobotStatus_publisher" 
+          pkg="aescape_gazebo" 
+          type="RobotStatus_publisher"
+          output="screen">
+  </node>
+
+  <include file="$(find demobot)/launch/support.launch"/>
+
+  <include file="$(find demobot)/launch/ui.launch"/>
+
+  <include file="$(find demobot)/launch/extra/system_monitor.launch">
+    <arg name="launch_main" value="true"/>
+    <arg name="machine_name" value="main_machine"/>
+  </include>
+</launch>
