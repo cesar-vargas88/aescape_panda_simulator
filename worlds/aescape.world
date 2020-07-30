@@ -1,0 +1,1637 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+  
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <model name='aescape_robot'>
+      <link name='left_arm_base_link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.509177 0.027316 0.123351 0 -0 0</pose>
+          <mass>6.92</mass>
+          <inertia>
+            <ixx>5.73971</ixx>
+            <ixy>-0.0191852</ixy>
+            <ixz>0.00344004</ixz>
+            <iyy>7.22749</iyy>
+            <iyz>-0.17954</iyz>
+            <izz>6.39328</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_arm_base_link_fixed_joint_lump__center_camera_base_collision'>
+          <pose frame=''>0.512 0.885 1.288 1.482 0.767 -1.52</pose>
+          <geometry>
+            <box>
+              <size>0.04 0.18 0.047</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='left_arm_base_link_fixed_joint_lump__left_camera_base_collision_1'>
+          <pose frame=''>0.14044 -0.053071 1.35892 2.61 1.156 -0.605</pose>
+          <geometry>
+            <box>
+              <size>0.04 0.18 0.047</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='left_arm_base_link_fixed_joint_lump__right_camera_base_collision_2'>
+          <pose frame=''>0.89 -0.033 1.358 -2.96 1.106 -2.92</pose>
+          <geometry>
+            <box>
+              <size>0.04 0.18 0.047</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='left_arm_base_link_fixed_joint_lump__left_arm_link0_collision_3'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link0.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='left_arm_base_link_fixed_joint_lump__right_arm_link0_collision_4'>
+          <pose frame=''>1.0176 0.0111 -0.0046 0 -0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link0.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='left_arm_base_link_fixed_joint_lump__table_center_collision_5'>
+          <pose frame=''>0.5058 -0.656842 0.2834 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.76 1.83 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='left_arm_base_link_fixed_joint_lump__center_camera_base_visual'>
+          <pose frame=''>0.512 0.885 1.288 1.482 0.767 -1.52</pose>
+          <geometry>
+            <box>
+              <size>0.04 0.18 0.047</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='left_arm_base_link_fixed_joint_lump__left_camera_base_visual_1'>
+          <pose frame=''>0.14044 -0.053071 1.35892 2.61 1.156 -0.605</pose>
+          <geometry>
+            <box>
+              <size>0.04 0.18 0.047</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='left_arm_base_link_fixed_joint_lump__right_camera_base_visual_2'>
+          <pose frame=''>0.89 -0.033 1.358 -2.96 1.106 -2.92</pose>
+          <geometry>
+            <box>
+              <size>0.04 0.18 0.047</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='left_arm_base_link_fixed_joint_lump__left_arm_link0_visual_3'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link0.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='left_arm_base_link_fixed_joint_lump__right_arm_link0_visual_4'>
+          <pose frame=''>1.0176 0.0111 -0.0046 0 -0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link0.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='left_arm_base_link_fixed_joint_lump__table_center_visual_5'>
+          <pose frame=''>0.5058 -0.656842 0.2834 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.76 1.83 0.1</size>
+            </box>
+          </geometry>
+        </visual>
+        <velocity_decay/>
+        <sensor name='center_camera_base' type='depth'>
+          <update_rate>10</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>1.0472</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>3</far>
+            </clip>
+          </camera>
+          <plugin name='camera_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>center_camera_base_camera_ir</cameraName>
+            <imageTopicName>/center_camera_base/camera/color/image_raw</imageTopicName>
+            <cameraInfoTopicName>/center_camera_base/camera/color/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/center_camera_base/camera/depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>/center_camera_base/camera/depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>/center_camera_base/camera/depth/points</pointCloudTopicName>
+            <frameName>center_camera_base</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+          </plugin>
+          <pose frame=''>0.512 0.885 1.288 1.482 0.767 -1.52</pose>
+        </sensor>
+        <velocity_decay/>
+        <sensor name='left_camera_base' type='depth'>
+          <update_rate>10</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>1.0472</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>3</far>
+            </clip>
+          </camera>
+          <plugin name='camera_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>left_camera_base_camera_ir</cameraName>
+            <imageTopicName>/left_camera_base/camera/color/image_raw</imageTopicName>
+            <cameraInfoTopicName>/left_camera_base/camera/color/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/left_camera_base/camera/depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>/left_camera_base/camera/depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>/left_camera_base/camera/depth/points</pointCloudTopicName>
+            <frameName>left_camera_base</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+          </plugin>
+          <pose frame=''>0.14044 -0.053071 1.35892 2.61 1.156 -0.605</pose>
+        </sensor>
+        <velocity_decay/>
+        <sensor name='right_camera_base' type='depth'>
+          <update_rate>10</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>1.0472</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>3</far>
+            </clip>
+          </camera>
+          <plugin name='camera_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>right_camera_base_camera_ir</cameraName>
+            <imageTopicName>/right_camera_base/camera/color/image_raw</imageTopicName>
+            <cameraInfoTopicName>/right_camera_base/camera/color/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/right_camera_base/camera/depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>/right_camera_base/camera/depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>/right_camera_base/camera/depth/points</pointCloudTopicName>
+            <frameName>right_camera_base</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+          </plugin>
+          <pose frame=''>0.89 -0.033 1.358 -2.96 1.106 -2.92</pose>
+        </sensor>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <link name='left_arm_link1'>
+        <pose frame=''>0 0 0.333 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.003875 0.002081 -0.175 0 -0 0</pose>
+          <mass>4.97068</mass>
+          <inertia>
+            <ixx>0.70337</ixx>
+            <ixy>-0.000139</ixy>
+            <ixz>0.006772</ixz>
+            <iyy>0.70661</iyy>
+            <iyz>0.019169</iyz>
+            <izz>0.009117</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_arm_link1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link1.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_arm_link1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link1.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='left_arm_joint1' type='revolute'>
+        <child>left_arm_link1</child>
+        <parent>left_arm_base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.8973</lower>
+            <upper>2.8973</upper>
+            <effort>87</effort>
+            <velocity>2.175</velocity>
+          </limit>
+          <dynamics>
+            <damping>10</damping>
+            <friction>5</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='left_arm_link2'>
+        <pose frame=''>0 0 0.333 -1.5708 0 0</pose>
+        <inertial>
+          <pose frame=''>-0.003141 -0.02872 0.003495 0 -0 0</pose>
+          <mass>0.646926</mass>
+          <inertia>
+            <ixx>0.007962</ixx>
+            <ixy>-0.003925</ixy>
+            <ixz>0.010254</ixz>
+            <iyy>0.02811</iyy>
+            <iyz>0.000704</iyz>
+            <izz>0.025995</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_arm_link2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link2.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_arm_link2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link2.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='left_arm_joint2' type='revolute'>
+        <child>left_arm_link2</child>
+        <parent>left_arm_link1</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.7628</lower>
+            <upper>1.7628</upper>
+            <effort>87</effort>
+            <velocity>2.175</velocity>
+          </limit>
+          <dynamics>
+            <damping>5</damping>
+            <friction>2</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='left_arm_link3'>
+        <pose frame=''>0 -0 0.649 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.027518 0.039252 -0.066502 0 -0 0</pose>
+          <mass>3.2286</mass>
+          <inertia>
+            <ixx>0.037242</ixx>
+            <ixy>-0.004761</ixy>
+            <ixz>-0.011396</ixz>
+            <iyy>0.036155</iyy>
+            <iyz>-0.012805</iyz>
+            <izz>0.01083</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_arm_link3_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link3.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_arm_link3_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link3.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='left_arm_joint3' type='revolute'>
+        <child>left_arm_link3</child>
+        <parent>left_arm_link2</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.8973</lower>
+            <upper>2.8973</upper>
+            <effort>87</effort>
+            <velocity>2.175</velocity>
+          </limit>
+          <dynamics>
+            <damping>5</damping>
+            <friction>2</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='left_arm_link4'>
+        <pose frame=''>0.0825 -0 0.649 1.5708 -0 0</pose>
+        <inertial>
+          <pose frame=''>-0.05317 0.104419 0.027454 0 -0 0</pose>
+          <mass>3.5879</mass>
+          <inertia>
+            <ixx>0.025853</ixx>
+            <ixy>0.007796</ixy>
+            <ixz>-0.001332</ixz>
+            <iyy>0.019552</iyy>
+            <iyz>0.008641</iyz>
+            <izz>0.028323</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_arm_link4_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link4.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_arm_link4_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link4.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='left_arm_joint4' type='revolute'>
+        <child>left_arm_link4</child>
+        <parent>left_arm_link3</parent>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-3.0718</lower>
+            <upper>-0.0698</upper>
+            <effort>87</effort>
+            <velocity>2.175</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0.5</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='left_arm_link5'>
+        <pose frame=''>-0 0 1.033 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>-0.011953 0.041065 -0.038437 0 -0 0</pose>
+          <mass>1.22595</mass>
+          <inertia>
+            <ixx>0.035549</ixx>
+            <ixy>-0.002117</ixy>
+            <ixz>-0.004037</ixz>
+            <iyy>0.029474</iyy>
+            <iyz>0.000229</iyz>
+            <izz>0.008627</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_arm_link5_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link5.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_arm_link5_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link5.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='left_arm_joint5' type='revolute'>
+        <child>left_arm_link5</child>
+        <parent>left_arm_link4</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.8973</lower>
+            <upper>2.8973</upper>
+            <effort>12</effort>
+            <velocity>2.61</velocity>
+          </limit>
+          <dynamics>
+            <damping>2</damping>
+            <friction>1</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='left_arm_link6'>
+        <pose frame=''>-0 0 1.033 1.5708 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.060149 -0.014117 -0.010517 0 -0 0</pose>
+          <mass>1.66656</mass>
+          <inertia>
+            <ixx>0.001964</ixx>
+            <ixy>0.000109</ixy>
+            <ixz>-0.001158</ixz>
+            <iyy>0.004354</iyy>
+            <iyz>0.000341</iyz>
+            <izz>0.005433</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_arm_link6_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link6.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_arm_link6_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link6.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='left_arm_joint6' type='revolute'>
+        <child>left_arm_link6</child>
+        <parent>left_arm_link5</parent>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-0.0175</lower>
+            <upper>3.7525</upper>
+            <effort>12</effort>
+            <velocity>2.61</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0.5</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='left_arm_link7'>
+        <pose frame=''>0.088 -0 0.927 3.14159 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.005465 -0.002209 0.032007 0 -0 0</pose>
+          <mass>1.41552</mass>
+          <inertia>
+            <ixx>0.114863</ixx>
+            <ixy>-0.000412199</ixy>
+            <ixz>-0.0014249</ixz>
+            <iyy>0.112407</iyy>
+            <iyz>-0.000648458</iyz>
+            <izz>0.10586</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_arm_link7_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link7.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='left_arm_link7_fixed_joint_lump__left_arm_tool_link_collision_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/left_tp.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_arm_link7_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link7.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='left_arm_link7_fixed_joint_lump__left_arm_tool_link_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/left_tp.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <sensor name='left_arm_tool_bumper' type='contact'>
+          <always_on>1</always_on>
+          <contact>
+            <collision>left_arm_link7_fixed_joint_lump__left_arm_tool_link_collision_1</collision>
+            <topic>__default_topic__</topic>
+          </contact>
+          <plugin name='left_arm_tool_plugin' filename='libgazebo_ros_bumper.so'>
+            <bumperTopicName>/left/left_arm_tool_link/bumper</bumperTopicName>
+            <frameName>left_arm_tool_link</frameName>
+          </plugin>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </sensor>
+      </link>
+      <joint name='left_arm_joint7' type='revolute'>
+        <child>left_arm_link7</child>
+        <parent>left_arm_link6</parent>
+        <axis>
+          <xyz>0 -0 -1</xyz>
+          <limit>
+            <lower>-2.8973</lower>
+            <upper>2.8973</upper>
+            <effort>12</effort>
+            <velocity>2.61</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0.5</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='right_arm_link1'>
+        <pose frame=''>1.0176 0.0111 0.3284 0 -0 -3.14159</pose>
+        <inertial>
+          <pose frame=''>0.003875 0.002081 -0.175 0 -0 0</pose>
+          <mass>4.97068</mass>
+          <inertia>
+            <ixx>0.70337</ixx>
+            <ixy>-0.000139</ixy>
+            <ixz>0.006772</ixz>
+            <iyy>0.70661</iyy>
+            <iyz>0.019169</iyz>
+            <izz>0.009117</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_arm_link1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link1.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_arm_link1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link1.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='right_arm_joint1' type='revolute'>
+        <child>right_arm_link1</child>
+        <parent>left_arm_base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.8973</lower>
+            <upper>2.8973</upper>
+            <effort>87</effort>
+            <velocity>2.175</velocity>
+          </limit>
+          <dynamics>
+            <damping>10</damping>
+            <friction>5</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='right_arm_link2'>
+        <pose frame=''>1.0176 0.0111 0.3284 -1.5708 -0 -3.14159</pose>
+        <inertial>
+          <pose frame=''>-0.003141 -0.02872 0.003495 0 -0 0</pose>
+          <mass>0.646926</mass>
+          <inertia>
+            <ixx>0.007962</ixx>
+            <ixy>-0.003925</ixy>
+            <ixz>0.010254</ixz>
+            <iyy>0.02811</iyy>
+            <iyz>0.000704</iyz>
+            <izz>0.025995</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_arm_link2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link2.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_arm_link2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link2.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='right_arm_joint2' type='revolute'>
+        <child>right_arm_link2</child>
+        <parent>right_arm_link1</parent>
+        <axis>
+          <xyz>0 -1 0</xyz>
+          <limit>
+            <lower>-1.7628</lower>
+            <upper>1.7628</upper>
+            <effort>87</effort>
+            <velocity>2.175</velocity>
+          </limit>
+          <dynamics>
+            <damping>5</damping>
+            <friction>2</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='right_arm_link3'>
+        <pose frame=''>1.0176 0.0111 0.6444 -0 -0 -3.14159</pose>
+        <inertial>
+          <pose frame=''>0.027518 0.039252 -0.066502 0 -0 0</pose>
+          <mass>3.2286</mass>
+          <inertia>
+            <ixx>0.037242</ixx>
+            <ixy>-0.004761</ixy>
+            <ixz>-0.011396</ixz>
+            <iyy>0.036155</iyy>
+            <iyz>-0.012805</iyz>
+            <izz>0.01083</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_arm_link3_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link3.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_arm_link3_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link3.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='right_arm_joint3' type='revolute'>
+        <child>right_arm_link3</child>
+        <parent>right_arm_link2</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.8973</lower>
+            <upper>2.8973</upper>
+            <effort>87</effort>
+            <velocity>2.175</velocity>
+          </limit>
+          <dynamics>
+            <damping>5</damping>
+            <friction>2</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='right_arm_link4'>
+        <pose frame=''>0.9351 0.0111 0.6444 1.5708 -0 -3.14159</pose>
+        <inertial>
+          <pose frame=''>-0.05317 0.104419 0.027454 0 -0 0</pose>
+          <mass>3.5879</mass>
+          <inertia>
+            <ixx>0.025853</ixx>
+            <ixy>0.007796</ixy>
+            <ixz>-0.001332</ixz>
+            <iyy>0.019552</iyy>
+            <iyz>0.008641</iyz>
+            <izz>0.028323</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_arm_link4_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link4.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_arm_link4_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link4.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='right_arm_joint4' type='revolute'>
+        <child>right_arm_link4</child>
+        <parent>right_arm_link3</parent>
+        <axis>
+          <xyz>-0 1 0</xyz>
+          <limit>
+            <lower>-3.0718</lower>
+            <upper>-0.0698</upper>
+            <effort>87</effort>
+            <velocity>2.175</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0.5</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='right_arm_link5'>
+        <pose frame=''>1.0176 0.0111 1.0284 -0 -0 -3.14159</pose>
+        <inertial>
+          <pose frame=''>-0.011953 0.041065 -0.038437 0 -0 0</pose>
+          <mass>1.22595</mass>
+          <inertia>
+            <ixx>0.035549</ixx>
+            <ixy>-0.002117</ixy>
+            <ixz>-0.004037</ixz>
+            <iyy>0.029474</iyy>
+            <iyz>0.000229</iyz>
+            <izz>0.008627</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_arm_link5_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link5.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_arm_link5_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link5.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='right_arm_joint5' type='revolute'>
+        <child>right_arm_link5</child>
+        <parent>right_arm_link4</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.8973</lower>
+            <upper>2.8973</upper>
+            <effort>12</effort>
+            <velocity>2.61</velocity>
+          </limit>
+          <dynamics>
+            <damping>2</damping>
+            <friction>1</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='right_arm_link6'>
+        <pose frame=''>1.0176 0.0111 1.0284 1.5708 -0 -3.14159</pose>
+        <inertial>
+          <pose frame=''>0.060149 -0.014117 -0.010517 0 -0 0</pose>
+          <mass>1.66656</mass>
+          <inertia>
+            <ixx>0.001964</ixx>
+            <ixy>0.000109</ixy>
+            <ixz>-0.001158</ixz>
+            <iyy>0.004354</iyy>
+            <iyz>0.000341</iyz>
+            <izz>0.005433</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_arm_link6_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link6.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_arm_link6_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link6.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/White</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+      </link>
+      <joint name='right_arm_joint6' type='revolute'>
+        <child>right_arm_link6</child>
+        <parent>right_arm_link5</parent>
+        <axis>
+          <xyz>-0 1 0</xyz>
+          <limit>
+            <lower>-0.0175</lower>
+            <upper>3.7525</upper>
+            <effort>12</effort>
+            <velocity>2.61</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0.5</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='right_arm_link7'>
+        <pose frame=''>0.9296 0.0111 0.9224 3.14159 -0 -3.14159</pose>
+        <inertial>
+          <pose frame=''>0.005465 -0.002209 0.032007 0 -0 0</pose>
+          <mass>1.41552</mass>
+          <inertia>
+            <ixx>0.114863</ixx>
+            <ixy>-0.000412199</ixy>
+            <ixz>-0.0014249</ixz>
+            <iyy>0.112407</iyy>
+            <iyz>-0.000648458</iyz>
+            <izz>0.10586</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_arm_link7_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/link7.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='right_arm_link7_fixed_joint_lump__right_arm_tool_link_collision_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/collision/left_tp.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_arm_link7_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/link7.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='right_arm_link7_fixed_joint_lump__right_arm_tool_link_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://aescape_gazebo/meshes/visual/left_tp.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <sensor name='right_arm_tool_bumper' type='contact'>
+          <always_on>1</always_on>
+          <contact>
+            <collision>right_arm_link7_fixed_joint_lump__right_arm_tool_link_collision_1</collision>
+            <topic>__default_topic__</topic>
+          </contact>
+          <plugin name='right_arm_tool_plugin' filename='libgazebo_ros_bumper.so'>
+            <bumperTopicName>/right/right_arm_tool_link/bumper</bumperTopicName>
+            <frameName>right_arm_tool_link</frameName>
+          </plugin>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </sensor>
+      </link>
+      <joint name='right_arm_joint7' type='revolute'>
+        <child>right_arm_link7</child>
+        <parent>right_arm_link6</parent>
+        <axis>
+          <xyz>-0 0 -1</xyz>
+          <limit>
+            <lower>-2.8973</lower>
+            <upper>2.8973</upper>
+            <effort>12</effort>
+            <velocity>2.61</velocity>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>0.5</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <provide_feedback>1</provide_feedback>
+          <ode>
+            <provide_feedback>1</provide_feedback>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+        <robotNamespace>/left</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        <legacyModeNS>1</legacyModeNS>
+      </plugin>
+      <plugin name='ft_sensor' filename='libgazebo_ros_ft_sensor.so'>
+        <robotNamespace>/left</robotNamespace>
+        <updateRate>100.0</updateRate>
+        <topicName>transformed_world</topicName>
+        <jointName>left_arm_joint7</jointName>
+      </plugin>
+      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+        <robotNamespace>/right</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        <legacyModeNS>1</legacyModeNS>
+      </plugin>
+      <static>0</static>
+      <plugin name='ft_sensor' filename='libgazebo_ros_ft_sensor.so'>
+        <robotNamespace>/right</robotNamespace>
+        <updateRate>100.0</updateRate>
+        <topicName>transformed_world</topicName>
+        <jointName>right_arm_joint7</jointName>
+      </plugin>
+    </model>
+
+    <gravity>0 0 -9.8</gravity>
+
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+    </physics>
+
+  </world>
+</sdf>
