@@ -16,11 +16,11 @@
         
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_gazebo)/rviz/visualize.rviz" required="true" />
 
-  <node   name="DualCartesianMotionController_publisher" 
+  <!--node   name="DualCartesianMotionController_publisher" 
           pkg="aescape_gazebo" 
           type="DualCartesianMotionController_publisher"
           output="screen">
-  </node>
+  </node-->
 
   <node   name="RobotStatus_publisher" 
           pkg="aescape_gazebo" 
