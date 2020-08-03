@@ -29,8 +29,8 @@
     <xacro:include filename="$(find aescape_gazebo)/urdf/panda.transmission.xacro"/>
     <xacro:include filename="$(find aescape_gazebo)/urdf/depth_camera.xacro"/>
 
-    <xacro:panda_gazebo robot_name="left_arm"/>
-    <xacro:panda_gazebo robot_name="right_arm"/>
+    <xacro:panda_gazebo arm_id="left"/>
+    <xacro:panda_gazebo arm_id="right"/>
 
     <xacro:panda_transmission robot_name="left_arm" robot_ns="left"/>
     <xacro:panda_transmission robot_name="right_arm" robot_ns="right"/>

@@ -2,114 +2,219 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="panda_gazebo" params="robot_name">
+    <xacro:macro name="panda_gazebo" params="arm_id">
 
-        <gazebo reference="${robot_name}_link0">
-            <material>Gazebo/Grey</material>
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
+        <!-- Link0 -->
+        <gazebo reference="${arm_id}_arm_link0">
+
+          <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+
+          <sensor name="${arm_id}_arm_link0_contact" type="contact">
+            <always_on>true</always_on>
+            <contact>
+              <collision>${arm_id}_arm_base_link_fixed_joint_lump__${arm_id}_arm_link0_collision_3</collision>
+            </contact>
+            <plugin name="${arm_id}_arm_link0_plugin" filename="libgazebo_ros_bumper.so">
+              <bumperTopicName>/${arm_id}/contact/${arm_id}_arm_link0</bumperTopicName>
+              <frameName>${arm_id}_arm_link0</frameName>
+            </plugin>
+          </sensor>
+
         </gazebo>
 
         <!-- Link1 -->
-        <gazebo reference="${robot_name}_link1">
-            <material>Gazebo/White</material>
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
+        <gazebo reference="${arm_id}_arm_link1">
+
+          <material>Gazebo/White</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+
+          <sensor name="${arm_id}_arm_link1_contact" type="contact">
+            <always_on>true</always_on>
+            <contact>
+              <collision>${arm_id}_arm_link1_collision</collision>
+            </contact>
+            <plugin name="${arm_id}_arm_link1_plugin" filename="libgazebo_ros_bumper.so">
+              <bumperTopicName>/${arm_id}/contact/${arm_id}_arm_link1</bumperTopicName>
+              <frameName>${arm_id}_arm_link1</frameName>
+            </plugin>
+          </sensor>
+
         </gazebo>
 
         <!-- Link2 -->
-        <gazebo reference="${robot_name}_link2">
-            <material>Gazebo/White</material>
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
+        <gazebo reference="${arm_id}_arm_link2">
+
+          <material>Gazebo/White</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+
+          <sensor name="${arm_id}_arm_link2_contact" type="contact">
+            <always_on>true</always_on>
+            <contact>
+              <collision>${arm_id}_arm_link2_collision</collision>
+            </contact>
+            <plugin name="${arm_id}_arm_link2_plugin" filename="libgazebo_ros_bumper.so">
+              <bumperTopicName>/${arm_id}/contact/${arm_id}_arm_link2</bumperTopicName>
+              <frameName>${arm_id}_arm_link2</frameName>
+            </plugin>
+          </sensor>
+
         </gazebo>
 
         <!-- Link3 -->
-        <gazebo reference="${robot_name}_link3">
-            <material>Gazebo/White</material>
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
+        <gazebo reference="${arm_id}_arm_link3">
+
+          <material>Gazebo/White</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+
+          <sensor name="${arm_id}_arm_link3_contact" type="contact">
+            <always_on>true</always_on>
+            <contact>
+              <collision>${arm_id}_arm_link3_collision</collision>
+            </contact>
+            <plugin name="${arm_id}_arm_link3_plugin" filename="libgazebo_ros_bumper.so">
+              <bumperTopicName>/${arm_id}/contact/${arm_id}_arm_link3</bumperTopicName>
+              <frameName>${arm_id}_arm_link3</frameName>
+            </plugin>
+          </sensor>
+
         </gazebo>
 
         <!-- Link4 -->
-        <gazebo reference="${robot_name}_link4">
-            <material>Gazebo/White</material>
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
+        <gazebo reference="${arm_id}_arm_link4">
+
+          <material>Gazebo/White</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+
+          <sensor name="${arm_id}_arm_link4_contact" type="contact">
+            <always_on>true</always_on>
+            <contact>
+              <collision>${arm_id}_arm_link4_collision</collision>
+            </contact>
+            <plugin name="${arm_id}_arm_link4_plugin" filename="libgazebo_ros_bumper.so">
+              <bumperTopicName>/${arm_id}/contact/${arm_id}_arm_link4</bumperTopicName>
+              <frameName>${arm_id}_arm_link4</frameName>
+            </plugin>
+          </sensor>
+
         </gazebo>
 
         <!-- Link5 -->
-        <gazebo reference="${robot_name}_link5">
-            <material>Gazebo/White</material>
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
+        <gazebo reference="${arm_id}_arm_link5">
+
+          <material>Gazebo/White</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+
+          <sensor name="${arm_id}_arm_link5_contact" type="contact">
+            <always_on>true</always_on>
+            <contact>
+              <collision>${arm_id}_arm_link5_collision</collision>
+            </contact>
+            <plugin name="${arm_id}_arm_link5_plugin" filename="libgazebo_ros_bumper.so">
+              <bumperTopicName>/${arm_id}/contact/${arm_id}_arm_link5</bumperTopicName>
+              <frameName>${arm_id}_arm_link5</frameName>
+            </plugin>
+          </sensor>
+
         </gazebo>
 
         <!-- Link6 -->
-        <gazebo reference="${robot_name}_link6">
-            <material>Gazebo/White</material>
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
+        <gazebo reference="${arm_id}_arm_link6">
+
+          <material>Gazebo/White</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+
+          <sensor name="${arm_id}_arm_link6_contact" type="contact">
+            <always_on>true</always_on>
+            <contact>
+              <collision>${arm_id}_arm_link6_collision</collision>
+            </contact>
+            <plugin name="${arm_id}_arm_link6_plugin" filename="libgazebo_ros_bumper.so">
+              <bumperTopicName>/${arm_id}/contact/${arm_id}_arm_link6</bumperTopicName>
+              <frameName>${arm_id}_arm_link6</frameName>
+            </plugin>
+          </sensor>
+
         </gazebo>
 
         <!-- Link7 -->
-        <gazebo reference="${robot_name}_link7">
-            <material>Gazebo/Grey</material>
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
+        <gazebo reference="${arm_id}_arm_link7">
+
+          <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+
+          <sensor name="${arm_id}_arm_link7_contact" type="contact">
+            <always_on>true</always_on>
+            <contact>
+              <collision>${arm_id}_arm_link7_fixed_joint_lump__${arm_id}_arm_tool_link_collision_1</collision>
+            </contact>
+            <plugin name="${arm_id}_arm_link7_plugin" filename="libgazebo_ros_bumper.so">
+              <bumperTopicName>/${arm_id}/contact/${arm_id}_arm_link7</bumperTopicName>
+              <frameName>${arm_id}_arm_link7</frameName>
+            </plugin>
+          </sensor>
+
         </gazebo>
 
         <!-- Link8 -->
-        <gazebo reference="${robot_name}_link8">
+        <gazebo reference="${arm_id}_arm_link8">
             <material>Gazebo/Grey</material>
             <mu1>0.2</mu1>
             <mu2>0.2</mu2>
         </gazebo>
 
         <!-- Joint1 -->
-        <gazebo reference="${robot_name}_joint1">
+        <gazebo reference="${arm_id}_arm_joint1">
           <implicitSpringDamper>1</implicitSpringDamper>
           <provideFeedback>true</provideFeedback>
         </gazebo>
 
         <!-- Joint2 -->
-        <gazebo reference="${robot_name}_joint2">
+        <gazebo reference="${arm_id}_arm_joint2">
           <implicitSpringDamper>1</implicitSpringDamper>
           <provideFeedback>true</provideFeedback>
         </gazebo>
 
         <!-- Joint3 -->
-        <gazebo reference="${robot_name}_joint3">
+        <gazebo reference="${arm_id}_arm_joint3">
           <implicitSpringDamper>1</implicitSpringDamper>
           <provideFeedback>true</provideFeedback>
         </gazebo>
 
         <!-- Joint4 -->
-        <gazebo reference="${robot_name}_joint4">
+        <gazebo reference="${arm_id}_arm_joint4">
           <implicitSpringDamper>1</implicitSpringDamper>
           <provideFeedback>true</provideFeedback>
         </gazebo>
 
         <!-- Joint5 -->
-        <gazebo reference="${robot_name}_joint5">
+        <gazebo reference="${arm_id}_arm_joint5">
           <implicitSpringDamper>1</implicitSpringDamper>
           <provideFeedback>true</provideFeedback>
         </gazebo>
 
         <!-- Joint5 -->
-        <gazebo reference="${robot_name}_joint6">
+        <gazebo reference="${arm_id}_arm_joint6">
           <implicitSpringDamper>1</implicitSpringDamper>
           <provideFeedback>true</provideFeedback>
         </gazebo>
 
         <!-- Joint6 -->
-        <gazebo reference="${robot_name}_joint7">
+        <gazebo reference="${arm_id}_arm_joint7">
           <implicitSpringDamper>1</implicitSpringDamper>
           <provideFeedback>true</provideFeedback>
         </gazebo>
 
         <!-- Joint7 -->
-        <gazebo reference="${robot_name}_joint8">
+        <gazebo reference="${arm_id}_arm_joint8">
           <implicitSpringDamper>1</implicitSpringDamper>
           <provideFeedback>true</provideFeedback>
         </gazebo>
