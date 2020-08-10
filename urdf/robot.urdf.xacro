@@ -72,7 +72,7 @@
       <origin rpy="0 0 0" xyz="0 -0.6332 -0.05"/>
     </collision>
     <inertial>
-        <mass value="0.2"/>
+        <mass value="200"/>
         <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
     <gazebo reference="table_center">
@@ -126,6 +126,25 @@
     <parent link="world"/>
     <child link="left_arm_base_link"/>
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+  </joint>
+
+  <link name="pepe">
+    <visual>
+        <geometry>
+          <mesh filename="package://aescape_gazebo/models/pepe/meshes/pepe.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://aescape_gazebo/models/pepe/meshes/pepe.dae"/>
+        </geometry>
+      </collision>
+  </link>
+
+  <joint name="pepe_to_world" type="fixed">
+   <parent link="world"/>
+    <child link="pepe"/>
+    <origin xyz="0.5 -1.2 0.40" rpy="${pi/2} 0 ${pi}" /> <!-- Default Values -->
   </joint>
 
 </robot>
