@@ -12,6 +12,14 @@
     <xacro:panda_arm arm_id="${arm_id}_arm" connected_to="${arm_id}_arm_base_link" in_gazebo="${use_gazebo}"  xyz="0 0 0" rpy="0 0 0"/>
   </xacro:macro>
 
+  <link name="world"/>
+
+  <joint name="world_to_left_arm_base_link" type="fixed">
+    <parent link="world"/>
+    <child link="left_arm_base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+  </joint>
+
   <joint name="right_arm_base_link_calibration" type="fixed">
     <parent link="left_arm_base_link"/>
     <child link="right_arm_base_link"/>
@@ -28,6 +36,9 @@
     <xacro:include filename="$(find aescape_gazebo)/urdf/panda.gazebo.xacro"/>
     <xacro:include filename="$(find aescape_gazebo)/urdf/panda.transmission.xacro"/>
     <xacro:include filename="$(find aescape_gazebo)/urdf/depth_camera.xacro"/>
+    <xacro:include filename="$(find aescape_gazebo)/urdf/pepe.xacro"/>
+    
+    <!--xacro:pepe name="pepe" connected_to="world" xyz="0.5 -1.4 0.45" rpy="${pi/2} 0.0 ${pi}"/-->
 
     <xacro:panda_gazebo arm_id="left"/>
     <xacro:panda_gazebo arm_id="right"/>
@@ -60,9 +71,6 @@
       <geometry>
       	<box size="0.76 1.83 0.1"/>
       </geometry>
-      <!--material name="Grey">
-	      <color rgba="0.5 0.5 0.5 0.8"/>
-      </material-->
       <origin rpy="0 0 0" xyz="0 -0.6332 -0.05"/>
     </visual>
     <collision>
@@ -72,15 +80,16 @@
       <origin rpy="0 0 0" xyz="0 -0.6332 -0.05"/>
     </collision>
     <inertial>
-        <mass value="200"/>
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <mass value="200"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
-    <gazebo reference="table_center">
-      <material>Gazebo/Black</material>
-      <mu1>0.2</mu1>
-      <mu2>0.2</mu2>
-    </gazebo>
   </link>
+
+  <gazebo reference="table_center">
+    <material>Gazebo/White</material>
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+  </gazebo>
 
   <joint name="table_center_calibration" type="fixed">
     <parent link="left_arm_base_link"/>
@@ -119,32 +128,5 @@
     <parent link="table_center"/>
     <child link="canonical_smpl_origin"/>
   </joint>-->
-
-  <link name="world"/>
-
-  <joint name="world_to_left_arm_base_link" type="fixed">
-    <parent link="world"/>
-    <child link="left_arm_base_link"/>
-    <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
-  </joint>
-
-  <link name="pepe">
-    <visual>
-        <geometry>
-          <mesh filename="package://aescape_gazebo/models/pepe/meshes/pepe.dae"/>
-        </geometry>
-      </visual>
-      <collision>
-        <geometry>
-          <mesh filename="package://aescape_gazebo/models/pepe/meshes/pepe.dae"/>
-        </geometry>
-      </collision>
-  </link>
-
-  <joint name="pepe_to_world" type="fixed">
-   <parent link="world"/>
-    <child link="pepe"/>
-    <origin xyz="0.5 -1.2 0.40" rpy="${pi/2} 0 ${pi}" /> <!-- Default Values -->
-  </joint>
 
 </robot>
