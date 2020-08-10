@@ -31,5 +31,14 @@
         -J right_arm_joint5  0.000
         -J right_arm_joint6  1.500
         -J right_arm_joint7  0.000 -unpause"/>
+    
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <node name="spawn_sdf" 
+    pkg="gazebo_ros" 
+    type="spawn_model" 
+    respawn="false" 
+    output="screen"
+    args="-file $(find aescape_gazebo)/models/pepe/model.sdf -sdf -x 0.0 -y 0.0 -z 2.0 -R 0.0 -P 0.0 -Y 0.0 -model pepe"/>
+
 
 </launch>
