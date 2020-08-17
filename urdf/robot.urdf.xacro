@@ -38,7 +38,7 @@
     <xacro:include filename="$(find aescape_gazebo)/urdf/depth_camera.xacro"/>
     <xacro:include filename="$(find aescape_gazebo)/urdf/pepe.xacro"/>
     
-    <!--xacro:pepe name="pepe" connected_to="world" xyz="0.5 -1.4 0.45" rpy="${pi/2} 0.0 ${pi}"/-->
+    <xacro:pepe name="pepe" connected_to="world" xyz="0.50 -1.20 0.30" rpy="${pi/2} 0.0 ${pi}"/>
 
     <xacro:panda_gazebo arm_id="left"/>
     <xacro:panda_gazebo arm_id="right"/>
@@ -80,7 +80,7 @@
       <origin rpy="0 0 0" xyz="0 -0.6332 -0.05"/>
     </collision>
     <inertial>
-      <mass value="200"/>
+      <mass value="2"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
@@ -89,6 +89,7 @@
     <material>Gazebo/White</material>
     <mu1>0.2</mu1>
     <mu2>0.2</mu2>
+    <selfCollide>true</selfCollide>
   </gazebo>
 
   <joint name="table_center_calibration" type="fixed">

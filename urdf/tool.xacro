@@ -32,6 +32,7 @@
       <material>Gazebo/Grey</material>
       <mu1>0.2</mu1>
       <mu2>0.2</mu2>
+      <selfCollide>true</selfCollide>
 
       <sensor name="${arm_id}_arm_tool_contact" type="contact">
         <always_on>true</always_on>
