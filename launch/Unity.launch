@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Unity communication -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="port" value="9090" />
+    </include>
+
+    <node name="file_server" pkg="file_server" type="file_server" output="screen" />
+    
+    <!-- ROS urdf, controllers and rviz -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find aescape_gazebo)/urdf/robot.urdf.xacro'" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aescape_gazebo)/rviz/visualize.rviz" required="true" />
+  
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+</launch>
