@@ -1,17 +1,22 @@
 #include "ros/ros.h"
 #include "geometry_msgs/PoseStamped.h"
-#include <aescape_control/ArmGoal.h>
+//#include <aescape_control/ArmGoal.h>
+#include <aescape_gazebo/ArmGoal.h>
 
 int main(int argc, char **argv)
 {
-    aescape_control::ArmGoal LeftArm_msg;
-    aescape_control::ArmGoal RightArm_msg;
+    //aescape_control::ArmGoal LeftArm_msg;
+    //aescape_control::ArmGoal RightArm_msg;
+    aescape_gazebo::ArmGoal LeftArm_msg;
+    aescape_gazebo::ArmGoal RightArm_msg;
 
     ros::init(argc, argv, "CartesianMotionController_publisher");
     ros::NodeHandle n;
 
-    ros::Publisher LeftArm_cartesian_motion_controller  = n.advertise<aescape_control::ArmGoal>("/left/robot_goal", 1000);
-    ros::Publisher RightArm_cartesian_motion_controller = n.advertise<aescape_control::ArmGoal>("/right/robot_goal", 1000);
+    //ros::Publisher LeftArm_cartesian_motion_controller  = n.advertise<aescape_control::ArmGoal>("/left/robot_goal", 1000);
+    //ros::Publisher RightArm_cartesian_motion_controller = n.advertise<aescape_control::ArmGoal>("/right/robot_goal", 1000);
+    ros::Publisher LeftArm_cartesian_motion_controller  = n.advertise<aescape_gazebo::ArmGoal>("/left/robot_goal", 1000);
+    ros::Publisher RightArm_cartesian_motion_controller = n.advertise<aescape_gazebo::ArmGoal>("/right/robot_goal", 1000);
     ros::Rate loop_rate(50);
   
     int index = 0;
